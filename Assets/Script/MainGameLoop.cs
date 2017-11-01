@@ -4,23 +4,21 @@ using UnityEngine;
 
 public class MainGameLoop : MonoBehaviour {
     CMoveInputController ic;
-    Transform t;
-    PositionComponent pc;
+    Player player1, player2;
     // Use this for initialization
     void Start () {
-        t = GameObject.Find("Cube").transform;
-        float s = 5.0f;
-        pc = new PositionComponent(t, s);
-  
-        // 输入控制器，配置按键和响应
+
         ic = new CMoveInputController();
-        ic.AddCommand("w", new MoveForwardCommandImpl(pc));
-        ic.AddCommand("s", new MoveBackCommandImpl(pc));
-        ic.AddCommand("a", new MoveLeftCommandImpl(pc));
-        ic.AddCommand("d", new MoveRightCommandImpl(pc));
-        ic.AddCommand("z", new MoveUpCommandImpl(pc));
-        ic.AddCommand("x", new MoveDownCommandImpl(pc));
-        ic.AddCommand("space", new MoveJumpCommandImpl(pc));
+        ic.AddCommand("w", new MoveForwardCommandImpl());
+        ic.AddCommand("s", new MoveBackCommandImpl());
+        ic.AddCommand("a", new MoveLeftCommandImpl());
+        ic.AddCommand("d", new MoveRightCommandImpl());
+        ic.AddCommand("z", new MoveUpCommandImpl());
+        ic.AddCommand("x", new MoveDownCommandImpl());
+        ic.AddCommand("space", new MoveJumpCommandImpl());
+
+        player1 = new Player("Cube", ic);
+        player2 = new Player("Sphere", ic);
         /*
             Normal keys: “a”, “b”, “c” …
             Number keys: “1”, “2”, “3”, …
@@ -37,8 +35,8 @@ public class MainGameLoop : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        ic.MoveControlByTranslate();
-        pc.Update();
 
+        player1.Update();
+        player2.Update();
     }
 }

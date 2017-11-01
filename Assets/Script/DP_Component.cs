@@ -2,18 +2,27 @@
 using UnityEditor;
 
 // 移动组件
-public class PositionComponent
+/* *
+ *  如何处理大坡度地形。
+ * */
+ public abstract class Component
+{
+
+}
+
+public class MoveComponent: Component
 {
     private Transform m_Transform;
     private Vector3 m_position;
-    private bool m_bInAir;
     private float m_fSpeed;
     private float m_maxSpeed;
     private float m_jumpSeed;
     private float m_gravity;
+    private Terrain m_terrain;
 
-    public PositionComponent(Transform transform, float speed)
+    public MoveComponent(Transform transform, float speed)
     {
+        m_terrain = GameObject.Find("Terrain").GetComponent<Terrain>(); ;
         m_Transform = transform;
         m_fSpeed = speed;
         m_gravity = 1.8f;
@@ -34,7 +43,7 @@ public class PositionComponent
 
     public void Jump()
     {
-        if (OnTheGround(m_position.y))
+        if (OnTheGround(m_position))
             m_jumpSeed = m_maxSpeed;
     }
 
@@ -46,13 +55,13 @@ public class PositionComponent
     public void Update()
     {
 
-        if (!OnTheGround(m_position.y) || m_jumpSeed > 0)
+        if (!OnTheGround(m_position) || m_jumpSeed > 0)
         {
             m_jumpSeed -= m_gravity;
         }
         else
         {
-            m_position.y = 0;
+            m_position.y = GetGroundY(m_position);
             m_jumpSeed = 0;
         }
 
@@ -62,28 +71,39 @@ public class PositionComponent
         m_Transform.up = Vector3.up;
     }
 
-    public bool OnTheGround(float y)
+    public bool OnTheGround(Vector3 objPos)
     {
-        RaycastHit hit;
-        Ray ray = new Ray(Vector3.up * 5, Vector3.down);
+        float y = objPos.y;
+   
+        float hitY = m_terrain.SampleHeight(objPos);
 
-        Physics.Raycast(ray, out hit, 6000);
-        float hitY = hit.point.y;
-
-        // 判断是否和地面相交
-        if (hit.collider == null)
-            return false;
-
-        if (hit.collider.name == "Terrain")
-            if (hitY > y)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+        if (hitY > y)
+        {
+            return true;
+        }
         else
+        {
             return false;
+        }
+    }
+
+    public float GetGroundY(Vector3 objPos)
+    {
+        float hitY = m_terrain.SampleHeight(objPos);
+        return hitY;
+    }
+}
+
+
+public class RenderComponent : Component
+{
+    GameObject m_model;
+    public RenderComponent(GameObject model)
+    {
+        m_model = model;
+    }
+
+    public void Update()
+    {
     }
 }
