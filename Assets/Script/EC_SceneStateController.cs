@@ -57,6 +57,5 @@ public abstract class AbstractSceneState : IState
         {
         }
     }
-
     public abstract void StateUpdate();
 }

@@ -2,41 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO::现在做点击界面按钮 更新shader
 public class MainGameLoop : MonoBehaviour {
-    CMoveInputController ic;
-    Player player1, player2;
+    MoveInputController m_ic;
+    CameraInputController m_icam;
+    Player m_player;
+    Camera m_camera;
+
     // Use this for initialization
     void Start () {
+        m_camera = GameObject.Find("Camera").GetComponent<Camera>();
+        
+        m_ic = new MoveInputController();
+        m_ic.AddCommand("w", new MoveForwardCommandImpl());
+        m_ic.AddCommand("s", new MoveBackCommandImpl());
+        m_ic.AddCommand("a", new MoveLeftCommandImpl());
+        m_ic.AddCommand("d", new MoveRightCommandImpl());
+        m_ic.AddCommand("z", new MoveUpCommandImpl());
+        m_ic.AddCommand("x", new MoveDownCommandImpl());
+        m_ic.AddCommand("space", new MoveJumpCommandImpl());
 
-        ic = new CMoveInputController();
-        ic.AddCommand("w", new MoveForwardCommandImpl());
-        ic.AddCommand("s", new MoveBackCommandImpl());
-        ic.AddCommand("a", new MoveLeftCommandImpl());
-        ic.AddCommand("d", new MoveRightCommandImpl());
-        ic.AddCommand("z", new MoveUpCommandImpl());
-        ic.AddCommand("x", new MoveDownCommandImpl());
-        ic.AddCommand("space", new MoveJumpCommandImpl());
+        m_icam = new CameraInputController();
+        m_icam.AddCommand("mouse 0", new CameraTurnLeftCommandImpl());
+        m_icam.AddCommand("mouse 1", new CameraTurnRightCommandImpl());
+        m_icam.AddCommand("", new CameraZoomImpl());
 
-        player1 = new Player("Cube", ic);
-        player2 = new Player("Sphere", ic);
-        /*
-            Normal keys: “a”, “b”, “c” …
-            Number keys: “1”, “2”, “3”, …
-            Arrow keys: “up”, “down”, “left”, “right”
-            Keypad keys: “[1]”, “[2]”, “[3]”, “[+]”, “[equals]”
-            Modifier keys: “right shift”, “left shift”, “right ctrl”, “left ctrl”, “right alt”, “left alt”, “right cmd”, “left cmd”
-            Mouse Buttons: “mouse 0”, “mouse 1”, “mouse 2”, …
-            Joystick Buttons (from any joystick): “joystick button 0”, “joystick button 1”, “joystick button 2”, …
-            Joystick Buttons (from a specific joystick): “joystick 1 button 0”, “joystick 1 button 1”, “joystick 2 button 0”, …
-            Special keys: “backspace”, “tab”, “return”, “escape”, “space”, “delete”, “enter”, “insert”, “home”, “end”, “page up”, “page down”
-            Function keys: “f1”, “f2”, “f3”, …
-         */
+        m_player = new Player("Cube");
+        m_player.SetCameraCmp(m_camera);
+        m_player.SetCameraController(m_icam);
+        m_player.SetMoveInputController(m_ic);
+
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        player1.Update();
-        player2.Update();
+        m_player.Update();
     }
 }
