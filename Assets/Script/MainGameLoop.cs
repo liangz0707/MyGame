@@ -2,41 +2,73 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO::现在做点击界面按钮 更新shader
+// 做一些杂乱的工作，和游戏主循环。
 public class MainGameLoop : MonoBehaviour {
-    MoveInputController m_ic;
-    CameraInputController m_icam;
-    Player m_player;
-    Camera m_camera;
-
-    // Use this for initialization
-    void Start () {
-        m_camera = GameObject.Find("Camera").GetComponent<Camera>();
-        
-        m_ic = new MoveInputController();
-        m_ic.AddCommand("w", new MoveForwardCommandImpl());
-        m_ic.AddCommand("s", new MoveBackCommandImpl());
-        m_ic.AddCommand("a", new MoveLeftCommandImpl());
-        m_ic.AddCommand("d", new MoveRightCommandImpl());
-        m_ic.AddCommand("z", new MoveUpCommandImpl());
-        m_ic.AddCommand("x", new MoveDownCommandImpl());
-        m_ic.AddCommand("space", new MoveJumpCommandImpl());
-
-        m_icam = new CameraInputController();
-        m_icam.AddCommand("mouse 0", new CameraTurnLeftCommandImpl());
-        m_icam.AddCommand("mouse 1", new CameraTurnRightCommandImpl());
-        m_icam.AddCommand("", new CameraZoomImpl());
-
-        m_player = new Player("Cube");
-        m_player.SetCameraCmp(m_camera);
-        m_player.SetCameraController(m_icam);
-        m_player.SetMoveInputController(m_ic);
-
+   
+    public void Start () {
+        PlayerFactory f = new PlayerFactory();
+        f.CreatePlayer("Cube");
+        ControllerCenter.Instance.SetMainPlayer(0);
     }
 	
 	// Update is called once per frame
 	void Update () {
+        if(Input.GetKeyDown("u"))
+        {
+            ShapeFactory sp = new ShapeFactory();
+            sp.CreateSphere(GameObject.Find("Cube").transform.position);
+        }
 
-        m_player.Update();
+        if (Input.GetKeyDown("c"))
+        {
+            PlayerFactory pf = new PlayerFactory();
+            PlayerProduct pd = pf.CreatePlayer("Cube");
+            pd.GetMoveComponent().SetPosition(ControllerCenter.Instance.GetCurPlayer().GetMoveComponent().GetPosition());
+        }
+
+        if (Input.GetKeyDown("s"))
+        {
+            PlayerFactory pf = new PlayerFactory();
+            PlayerProduct pd = pf.CreatePlayer("Sphere");
+            
+            pd.GetMoveComponent().SetPosition(ControllerCenter.Instance.GetCurPlayer().GetMoveComponent().GetPosition());
+        }
+
+        if (Input.GetKeyDown("1"))
+        {
+            ControllerCenter.Instance.SetMainPlayer(0);
+        }
+        if (Input.GetKeyDown("2"))
+        {
+            ControllerCenter.Instance.SetMainPlayer(1);
+        }
+        if (Input.GetKeyDown("3"))
+        {
+            ControllerCenter.Instance.SetMainPlayer(2);
+        }
+        if (Input.GetKeyDown("4"))
+        {
+            ControllerCenter.Instance.SetMainPlayer(3);
+        }
+        if (Input.GetKeyDown("5"))
+        {
+            ControllerCenter.Instance.SetMainPlayer(4);
+        }
+        if (Input.GetKeyDown("6"))
+        {
+            ControllerCenter.Instance.SetMainPlayer(5);
+        }
+        if (Input.GetKeyDown("7"))
+        {
+            ControllerCenter.Instance.SetMainPlayer(6);
+        }
+        if (Input.GetKeyDown("8"))
+        {
+            ControllerCenter.Instance.SetMainPlayer(7);
+        }
+
+
+
+        ControllerCenter.Instance.Update();
     }
 }
