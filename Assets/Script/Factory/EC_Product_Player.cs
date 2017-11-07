@@ -26,7 +26,6 @@ public class PlayerProduct
     private BuffComponent c_buff;
 
     // 下面是控制器
-    MoveInputController c_moveInputController;
     CameraInputController c_cameraController;
     BuffController c_buffController;
 
@@ -119,20 +118,10 @@ public class PlayerProduct
         c_cameraController = null;
     }
 
-    public void SetMoveInputController(MoveInputController cc)
-    {
-        c_moveInputController = cc;
-    }
-
-    public void RemoveMoveInputController()
-    {
-        c_moveInputController = null;
-    }
 
     public void Update()
     {
         // 控制器更新
-        if (c_moveInputController != null && c_position != null) c_moveInputController.MoveControl(c_position);
         if (c_cameraController != null && c_camera != null) c_cameraController.CameraControl(c_camera);
         if (c_buffController != null && c_buff != null) c_buffController.BuffControl(c_buff);
 

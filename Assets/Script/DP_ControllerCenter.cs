@@ -32,9 +32,19 @@ class ControllerCenter
         m_playerMan.AddPlayer(player);
     }
 
-    public void SetMainPlayer(int i)
+    public void AddMainPlayer(int i)
     {
-        m_playerMan.SetMainPlayer(i);
+        m_playerMan.AddMainPlayer(i);
+    }
+
+    public void RemoveMainPlayer(int i)
+    {
+        m_playerMan.RemoveMainPlayer(i);
+    }
+
+    public void SetCameraFollow(int i)
+    {
+        m_playerMan.SetCameraFollowPlayer(i);
     }
 
     // 单例的使用

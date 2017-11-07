@@ -3,3 +3,12 @@
 ################################################################################
 
 /Assets/Handpainted Forest Environment Free Sample
+
+
+Library
+Library/*
+.vs
+.vs/*
+Temp
+Temp/*
+

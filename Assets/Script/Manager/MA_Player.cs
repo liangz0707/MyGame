@@ -15,16 +15,6 @@ public class PlayerManager
     public PlayerManager()
     {
         m_curMainPlayerIndex = -1;
-        // 角色控制
-        m_ic = new MoveInputController();
-        // 如果在不同的平台可能会使用不同的映射，如果使用命令模式可以非常方便的进行映射。
-        m_ic.AddCommand("w", new MoveForwardCommandImpl());
-        m_ic.AddCommand("s", new MoveBackCommandImpl());
-        m_ic.AddCommand("a", new MoveLeftCommandImpl());
-        m_ic.AddCommand("d", new MoveRightCommandImpl());
-        m_ic.AddCommand("z", new MoveUpCommandImpl());
-        m_ic.AddCommand("x", new MoveDownCommandImpl());
-        m_ic.AddCommand("space", new MoveJumpCommandImpl());
 
         // 摄像机
         m_camera = GameObject.Find("Camera").GetComponent<Camera>();
@@ -42,25 +32,39 @@ public class PlayerManager
 
     }
 
-    public void SetMainPlayer(int i)
+    public void RemoveMainPlayer(int i)
+    {
+        if (i < m_players.Count && i >= 0 && m_players[i] != null)
+        {
+            ServiceLocator.getInputSetvice().RemoveControlComp(m_players[i].GetMoveComponent());
+        }
+    }
+
+    public void AddMainPlayer(int i)
+    {
+        if (i < m_players.Count && i >= 0 && m_players[i] != null)
+        {
+            ServiceLocator.getInputSetvice().AddControlComp(m_players[i].GetMoveComponent());
+        }
+    }
+
+    public void SetCameraFollowPlayer(int i)
     {
         if (m_curMainPlayerIndex != -1 && i < m_players.Count && i >= 0 && m_players[i] != null)
         {
+            m_players[m_curMainPlayerIndex].RemoveBuffController();
             m_players[m_curMainPlayerIndex].RemoveCameraCmp();
             m_players[m_curMainPlayerIndex].RemoveCameraController();
-            m_players[m_curMainPlayerIndex].RemoveMoveInputController();
-            m_players[m_curMainPlayerIndex].RemoveBuffController();
             m_curMainPlayerIndex = -1;
         }
-        
-        if(i < m_players.Count)
+
+        if (m_curMainPlayerIndex == -1 && i < m_players.Count && i >= 0 && m_players[i] != null)
         {
             m_players[i].SetBuffController(m_cbuff);
             m_players[i].SetCameraCmp(m_camera);
-            m_players[i].SetMoveInputController(m_ic);
             m_players[i].SetCameraController(m_icam);
             m_curMainPlayerIndex = i;
-        }  
+        }
     }
 
     public void AddPlayer(PlayerProduct player)
