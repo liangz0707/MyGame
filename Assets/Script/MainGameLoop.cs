@@ -9,7 +9,11 @@ public class MainGameLoop : MonoBehaviour {
         PlayerFactory f = new PlayerFactory();
         f.CreatePlayer("Cube");
 
+        IInputEventService m_ec = new InputEventService();
+        m_ec.SetKeyMapping();
+        ServiceLocator.prodive(m_ec);
 
+        // 控制器分开比较好，根据不同类型的命令分别写
         IKeyBoardControlService m_ic = new KeyBoardControlService();
         m_ic.AddCommand(IInputEventService.VertualKey.MOVE_FORWARD, new MoveForwardCommandImpl());
         m_ic.AddCommand(IInputEventService.VertualKey.MOVE_BACK, new MoveBackCommandImpl());
@@ -24,10 +28,23 @@ public class MainGameLoop : MonoBehaviour {
         m_mc.AddCommand(IInputEventService.VertualKey.MOUSE_MIDBUTTON_DOWN, new CameraZoomCommandImpl());
         ServiceLocator.prodive(m_mc);
 
-        IInputEventService m_ec = new InputEventService();
-        m_ec.SetKeyMapping();
-        ServiceLocator.prodive(m_ec);
+        /*
+        技能控制器也是通过命令模式，一个技能就是一个命令。
         
+        1.他只要操作buff组件就可以了
+
+        就像鼠标移动控制摄像机组件
+        移动按键控制位置组件
+        2.最后是点击事件，控制ui和拾取组件。
+        第一第二项需要实现。
+        ISkillControlService m_sc = new MouseControlService();
+        m_sc.AddCommand(IInputEventService.VertualKey.SKILL_1, new SkillCommandImpl());
+        m_sc.AddCommand(IInputEventService.VertualKey.SKILL_2, new SkillCommandImpl());
+        m_sc.AddCommand(IInputEventService.VertualKey.SKILL_3, new SkillCommandImpl());
+        ServiceLocator.prodive(m_sc);
+        */
+        
+  
         ControllerCenter.Instance.AddMainPlayer(0); // 这里内部使用了服务器定位提供的服务，但是没有报错 就是应为这个机制。
         ControllerCenter.Instance.SetCameraFollow(0);
     }
