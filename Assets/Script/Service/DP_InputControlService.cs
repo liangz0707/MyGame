@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public abstract class IInputControlService
 {
-    public abstract void AddCommand(string chr, AbstractMoveCommand cmd);
+    public abstract void AddCommand(IInputEventService.VertualKey vk, AbstractMoveCommand cmd);
 
     public abstract void TransLateInput();
 
@@ -15,7 +15,7 @@ public abstract class IInputControlService
 
 public  class NullInputConrtolService: IInputControlService
 {
-    public override void AddCommand(string chr, AbstractMoveCommand cmd) { }
+    public override void AddCommand(IInputEventService.VertualKey vk, AbstractMoveCommand cmd) { }
 
     public override void TransLateInput() { }
 
@@ -26,26 +26,26 @@ public  class NullInputConrtolService: IInputControlService
 
 public class InputControlService : IInputControlService
 {
-    Dictionary<string, AbstractMoveCommand> m_Dictionary;
+    Dictionary<IInputEventService.VertualKey, AbstractMoveCommand> m_Dictionary;
     List<MoveComponent> m_ControlList;  // 保存所有需要被控制的对象。
 
     public InputControlService()
     {
-        m_Dictionary = new Dictionary<string, AbstractMoveCommand>();
+        m_Dictionary = new Dictionary<IInputEventService.VertualKey, AbstractMoveCommand>();
         m_ControlList = new List<MoveComponent>();
     }
 
-    public override void AddCommand(string chr, AbstractMoveCommand cmd)
+    public override void AddCommand(IInputEventService.VertualKey vk, AbstractMoveCommand cmd)
     {
-        m_Dictionary.Add(chr, cmd);
+        m_Dictionary.Add(vk, cmd);
     }
     
     public override void TransLateInput()
     {
-        Dictionary<string, AbstractMoveCommand>.KeyCollection keyCol = m_Dictionary.Keys;
-        foreach (KeyValuePair<string, AbstractMoveCommand> kvp in m_Dictionary)
+        Dictionary< IInputEventService.VertualKey, AbstractMoveCommand >.KeyCollection keyCol = m_Dictionary.Keys;
+        foreach (KeyValuePair< IInputEventService.VertualKey, AbstractMoveCommand > kvp in m_Dictionary)
         {
-            if (Input.GetKey(kvp.Key))
+            if (ServiceLocator.getEventSetvice().IsActive(kvp.Key))
             {
                 foreach(MoveComponent posComponent in m_ControlList)
                     kvp.Value.Execute(posComponent);
