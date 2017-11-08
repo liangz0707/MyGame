@@ -104,7 +104,8 @@
     <Compile Include="Assets\Script\SceneSate\DP_State.cs" />
     <Compile Include="Assets\Script\SceneSate\EC_SceneStateController.cs" />
     <Compile Include="Assets\Script\Service\DP_AudioService.cs" />
-    <Compile Include="Assets\Script\Service\DP_InputControlService.cs" />
+    <Compile Include="Assets\Script\Service\DP_MouseControlService.cs" />
+    <Compile Include="Assets\Script\Service\DP_KeyboardControlService.cs" />
     <Compile Include="Assets\Script\Service\DP_InputEventService.cs" />
     <Compile Include="Assets\Script\Service\DP_NetService.cs" />
     <Compile Include="Assets\Script\Service\DP_PositionService.cs" />

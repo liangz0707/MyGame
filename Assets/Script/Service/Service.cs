@@ -8,7 +8,8 @@ using UnityEditor;
 public class ServiceLocator 
 {
     static public void prodive(IAudioService service){ service_audio = service; }
-    static public void prodive(IInputControlService service) { service_input = service; }
+    static public void prodive(IKeyBoardControlService service) { service_input = service; }
+    static public void prodive(IMouseControlService service) { service_mouse = service; }
     static public void prodive(IInputEventService service) { service_event = service; }
     
     static public IAudioService getAudioSetvice() {
@@ -22,10 +23,10 @@ public class ServiceLocator
         }
     }
 
-    static public IInputControlService getInputSetvice() {
+    static public IKeyBoardControlService getInputSetvice() {
         if(service_input == null)
         {
-            return new NullInputConrtolService();
+            return new NullKeyBoardControlService();
         }
         else
         {
@@ -45,7 +46,20 @@ public class ServiceLocator
         }
     }
 
-    static IInputControlService service_input;
+    static public IMouseControlService getMouseSetvice()
+    {
+        if (service_input == null)
+        {
+            return new NullMouseControlService();
+        }
+        else
+        {
+            return service_mouse;
+        }
+    }
+
+    static IKeyBoardControlService service_input;
+    static IMouseControlService service_mouse; 
     static IAudioService service_audio;
     static IInputEventService service_event;
     

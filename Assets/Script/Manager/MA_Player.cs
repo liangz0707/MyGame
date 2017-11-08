@@ -19,12 +19,6 @@ public class PlayerManager
         // 摄像机
         m_camera = GameObject.Find("Camera").GetComponent<Camera>();
 
-        // 鼠标控制
-        m_icam = new CameraInputController();
-        m_icam.AddCommand("mouse 0", new CameraTurnLeftCommandImpl());
-        m_icam.AddCommand("mouse 1", new CameraTurnRightCommandImpl());
-        m_icam.AddCommand("", new CameraZoomImpl());
-
         // buff控制器
         m_cbuff = new BuffController();
 
@@ -37,6 +31,7 @@ public class PlayerManager
         if (i < m_players.Count && i >= 0 && m_players[i] != null)
         {
             ServiceLocator.getInputSetvice().RemoveControlComp(m_players[i].GetMoveComponent());
+            ServiceLocator.getMouseSetvice().RemoveControlComp();
         }
     }
 
@@ -45,6 +40,7 @@ public class PlayerManager
         if (i < m_players.Count && i >= 0 && m_players[i] != null)
         {
             ServiceLocator.getInputSetvice().AddControlComp(m_players[i].GetMoveComponent());
+            ServiceLocator.getMouseSetvice().SetControlComp(m_players[i].GetCameraComponent());
         }
     }
 
@@ -53,8 +49,8 @@ public class PlayerManager
         if (m_curMainPlayerIndex != -1 && i < m_players.Count && i >= 0 && m_players[i] != null)
         {
             m_players[m_curMainPlayerIndex].RemoveBuffController();
-            m_players[m_curMainPlayerIndex].RemoveCameraCmp();
-            m_players[m_curMainPlayerIndex].RemoveCameraController();
+            ServiceLocator.getMouseSetvice().RemoveControlComp();
+            m_players[i].RemoveCameraCmp();
             m_curMainPlayerIndex = -1;
         }
 
@@ -62,7 +58,7 @@ public class PlayerManager
         {
             m_players[i].SetBuffController(m_cbuff);
             m_players[i].SetCameraCmp(m_camera);
-            m_players[i].SetCameraController(m_icam);
+            ServiceLocator.getMouseSetvice().SetControlComp(m_players[i].GetCameraComponent());
             m_curMainPlayerIndex = i;
         }
     }

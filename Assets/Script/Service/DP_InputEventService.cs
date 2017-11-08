@@ -4,6 +4,23 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
+public struct MouseState
+{
+    public float offsetX;
+    public float offsetY;
+    public float zoomOffset;
+    public float X;
+    public float Y;
+    public void Set(float ox,float oy, float oz, float x,float y)
+    {
+        offsetX = ox;
+        offsetY = oy;
+        zoomOffset = oz;
+        X = x;
+        Y = y;
+    }
+}
+
 public abstract class IInputEventService
 {
     public enum VertualKey
@@ -13,6 +30,9 @@ public abstract class IInputEventService
         MOVE_LEFT,
         MOVE_RIGHT,
         MOVE_JUMP,
+        MOUSE_RIGHTBUTTON_DOWN,
+        MOUSE_LEFTBUTTON_DOWN,
+        MOUSE_MIDBUTTON_DOWN,
         NUM_1,
         NUM_2,
         NUM_3,
@@ -35,6 +55,7 @@ public abstract class IInputEventService
         VERTUAL_KEY_NUMBER
     }
     public List<bool> m_lVertualKeyState;
+    public MouseState m_lMouseState;
 
     public Dictionary<string, VertualKey> m_KeyMap;
     public Dictionary<string, VertualKey> m_KeyMapMove;
@@ -46,6 +67,7 @@ public abstract class IInputEventService
     public abstract void SetKeyMapping();
     public abstract void TranslateInput();
     public abstract void ResetInput();
+    public abstract MouseState MousePos(VertualKey vk);
 }
 
 public class NullInputEventService: IInputEventService
@@ -71,7 +93,14 @@ public class NullInputEventService: IInputEventService
     public override void TranslateInput()
     {
     }
+
+    public override MouseState MousePos(VertualKey vk)
+    {
+        return new MouseState();
+    }
 }
+
+
 
 public class InputEventService: IInputEventService
 {
@@ -79,6 +108,8 @@ public class InputEventService: IInputEventService
     {
         m_lVertualKeyState = new List<bool>();
         for (int i = 0; i < (int)VertualKey.VERTUAL_KEY_NUMBER; i++) m_lVertualKeyState.Add(false);
+        m_lMouseState = new MouseState();
+
         m_KeyMap = new Dictionary<string, VertualKey>();
         m_KeyMapWithCtrl = new Dictionary<string, VertualKey>();
         m_KeyMapWithShift = new Dictionary<string, VertualKey>();
@@ -93,6 +124,11 @@ public class InputEventService: IInputEventService
             return false;
         else
             return m_lVertualKeyState[keyIndex];
+    }
+
+    public override MouseState MousePos(VertualKey vk)
+    {
+        return m_lMouseState;
     }
 
     public override void ResetInput()
@@ -110,6 +146,9 @@ public class InputEventService: IInputEventService
         m_KeyMapMove.Add("a", VertualKey.MOVE_LEFT);
         m_KeyMapMove.Add("d", VertualKey.MOVE_RIGHT);
         m_KeyMapMove.Add("space", VertualKey.MOVE_JUMP);
+
+        m_KeyMapMove.Add("mouse 0", VertualKey.MOUSE_LEFTBUTTON_DOWN);
+        m_KeyMapMove.Add("mouse 1", VertualKey.MOUSE_RIGHTBUTTON_DOWN);
 
         m_KeyMap.Add("1", VertualKey.NUM_1);
         m_KeyMap.Add("2", VertualKey.NUM_2);
@@ -134,6 +173,19 @@ public class InputEventService: IInputEventService
 
     public override void TranslateInput()
     {
+        // 记录鼠标状态
+        m_lMouseState.Set(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse ScrollWheel"), Input.mousePosition.x, Input.mousePosition.y);
+
+        // 中键需要特殊判断
+        if (Input.GetAxis("Mouse ScrollWheel") != 0)
+        {
+            m_lVertualKeyState[(int)VertualKey.MOUSE_MIDBUTTON_DOWN] = true;
+        }
+        else
+        {
+            m_lVertualKeyState[(int)VertualKey.MOUSE_MIDBUTTON_DOWN] = false;
+        }
+
         Dictionary<string, VertualKey>.KeyCollection keyCol = m_KeyMap.Keys;
         foreach (KeyValuePair<string, VertualKey> kvp in m_KeyMap)
         {
@@ -159,7 +211,11 @@ public class InputEventService: IInputEventService
         keyCol = m_KeyMapWithCtrl.Keys;
         foreach (KeyValuePair<string, VertualKey> kvp in m_KeyMapWithCtrl)
         {
-            if (Input.GetKeyDown(kvp.Key) && (Input.GetKey(KeyCode.LeftControl)|| Input.GetKey(KeyCode.RightControl)))
+            if (Input.GetKeyDown(kvp.Key)
+                && (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+                && !(Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+                && !(Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt))
+                )
             {
                 m_lVertualKeyState[(int)kvp.Value] = true;
             }
@@ -168,7 +224,11 @@ public class InputEventService: IInputEventService
         keyCol = m_KeyMapWithShift.Keys;
         foreach (KeyValuePair<string, VertualKey> kvp in m_KeyMapWithShift)
         {
-            if (Input.GetKeyDown(kvp.Key) && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
+            if (Input.GetKeyDown(kvp.Key) 
+                && !(Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+                && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+                && !(Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt))
+                )
             {
                 m_lVertualKeyState[(int)kvp.Value] = true;
             }
@@ -177,7 +237,11 @@ public class InputEventService: IInputEventService
         keyCol = m_KeyMapWithAlt.Keys;
         foreach (KeyValuePair<string, VertualKey> kvp in m_KeyMapWithAlt)
         {
-            if (Input.GetKeyDown(kvp.Key) && (Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt)))
+            if (Input.GetKeyDown(kvp.Key)
+                && !(Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+                && !(Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+                &&  (Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt))
+                )
             {
                 m_lVertualKeyState[(int)kvp.Value] = true;
             }

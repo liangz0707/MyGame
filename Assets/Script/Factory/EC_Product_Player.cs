@@ -26,7 +26,6 @@ public class PlayerProduct
     private BuffComponent c_buff;
 
     // 下面是控制器
-    CameraInputController c_cameraController;
     BuffController c_buffController;
 
     public PlayerProduct(String modelName)
@@ -107,22 +106,10 @@ public class PlayerProduct
     {
         c_buffController = null;
     }
-
-    public void SetCameraController(CameraInputController cc)
-    {
-        c_cameraController = cc;
-    }
-
-    public void RemoveCameraController()
-    {
-        c_cameraController = null;
-    }
-
-
+    
     public void Update()
     {
         // 控制器更新
-        if (c_cameraController != null && c_camera != null) c_cameraController.CameraControl(c_camera);
         if (c_buffController != null && c_buff != null) c_buffController.BuffControl(c_buff);
 
         // 组件更新

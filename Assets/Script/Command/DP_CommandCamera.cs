@@ -5,13 +5,13 @@ using System.Text;
 
 public abstract class AbstractCameraCommand
 {
-    public abstract void Execute(CameraComponent camComponent, float xOffset, float yOffset, float zoomOffset);
+    public abstract void Execute(CameraComponent camComponent, float xOffset, float yOffset, float zoomOffset, float x, float y);
 
 }
 
 public class CameraTurnRightCommandImpl : AbstractCameraCommand
 {
-    public override void Execute(CameraComponent posComponent, float xOffset, float yOffset, float zoomOffset)
+    public override void Execute(CameraComponent posComponent, float xOffset, float yOffset, float zoomOffset, float x, float y)
     {
         posComponent.TurnHerizental(xOffset);
         posComponent.TurnVerticel(yOffset);
@@ -20,14 +20,14 @@ public class CameraTurnRightCommandImpl : AbstractCameraCommand
 
 public class CameraTurnLeftCommandImpl : AbstractCameraCommand
 {
-    public override void Execute(CameraComponent posComponent, float xOffset, float yOffset, float zoomOffset)
+    public override void Execute(CameraComponent posComponent, float xOffset, float yOffset, float zoomOffset, float x, float y)
     {
     }
 }
 
-public class CameraZoomImpl : AbstractCameraCommand
+public class CameraZoomCommandImpl : AbstractCameraCommand
 {
-    public override void Execute(CameraComponent posComponent, float xOffset, float yOffset, float zoomOffset)
+    public override void Execute(CameraComponent posComponent, float xOffset, float yOffset, float zoomOffset, float x, float y)
     {
         posComponent.ZoomIn(zoomOffset);
     }

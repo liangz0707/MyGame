@@ -43,11 +43,11 @@ public class CameraInputController
         {
             if (kvp.Key == "")
             {
-                kvp.Value.Execute(camComponent, 0, 0, Input.GetAxis("Mouse ScrollWheel"));
+                kvp.Value.Execute(camComponent, 0, 0, Input.GetAxis("Mouse ScrollWheel"),0,0);
             }
             else if (Input.GetKey(kvp.Key))
             {
-                kvp.Value.Execute(camComponent, Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), 0);
+                kvp.Value.Execute(camComponent, Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), 0,0, 0);
             }
         }
     }

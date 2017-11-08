@@ -8,30 +8,39 @@ public class MainGameLoop : MonoBehaviour {
     public void Start () {
         PlayerFactory f = new PlayerFactory();
         f.CreatePlayer("Cube");
-        ControllerCenter.Instance.AddMainPlayer(0); // 这里内部使用了服务器定位提供的服务，但是没有报错 就是应为这个机制。
-        ControllerCenter.Instance.SetCameraFollow(0); 
 
-        IInputControlService m_ic = new InputControlService();
+
+        IKeyBoardControlService m_ic = new KeyBoardControlService();
         m_ic.AddCommand(IInputEventService.VertualKey.MOVE_FORWARD, new MoveForwardCommandImpl());
         m_ic.AddCommand(IInputEventService.VertualKey.MOVE_BACK, new MoveBackCommandImpl());
         m_ic.AddCommand(IInputEventService.VertualKey.MOVE_LEFT, new MoveLeftCommandImpl());
         m_ic.AddCommand(IInputEventService.VertualKey.MOVE_RIGHT, new MoveRightCommandImpl());
         m_ic.AddCommand(IInputEventService.VertualKey.MOVE_JUMP, new MoveJumpCommandImpl());
         ServiceLocator.prodive(m_ic);
-        
+
+        IMouseControlService m_mc = new MouseControlService();
+        m_mc.AddCommand(IInputEventService.VertualKey.MOUSE_RIGHTBUTTON_DOWN, new CameraTurnRightCommandImpl());
+        m_mc.AddCommand(IInputEventService.VertualKey.MOUSE_LEFTBUTTON_DOWN, new CameraTurnLeftCommandImpl());
+        m_mc.AddCommand(IInputEventService.VertualKey.MOUSE_MIDBUTTON_DOWN, new CameraZoomCommandImpl());
+        ServiceLocator.prodive(m_mc);
+
         IInputEventService m_ec = new InputEventService();
         m_ec.SetKeyMapping();
         ServiceLocator.prodive(m_ec);
-
+        
+        ControllerCenter.Instance.AddMainPlayer(0); // 这里内部使用了服务器定位提供的服务，但是没有报错 就是应为这个机制。
+        ControllerCenter.Instance.SetCameraFollow(0);
     }
 	
 	// Update is called once per frame
 	void Update () {
-        // 处理输入：每一个游戏对象（实体）的状态都保存在一个组件当中，控制器首先通过输入修改组件状态。
-
+        // 读取系统实际按键。并且将实际按键装换到虚拟按键。
         ServiceLocator.getEventSetvice().ResetInput();
         ServiceLocator.getEventSetvice().TranslateInput();
-        ServiceLocator.getInputSetvice().TransLateInput();
+
+        // 处理每一个虚拟按键的消息
+        ServiceLocator.getInputSetvice().MappingCommand();
+        ServiceLocator.getMouseSetvice().MappingCommand();
 
         if (ServiceLocator.getEventSetvice().IsActive(IInputEventService.VertualKey.SKILL_1))
         {
@@ -65,9 +74,9 @@ public class MainGameLoop : MonoBehaviour {
         if (ServiceLocator.getEventSetvice().IsActive(IInputEventService.VertualKey.NUM_4))
             ControllerCenter.Instance.AddMainPlayer(1);
  
-
         if (ServiceLocator.getEventSetvice().IsActive(IInputEventService.VertualKey.NUM_5))
             ControllerCenter.Instance.RemoveMainPlayer(2);
+
         if (ServiceLocator.getEventSetvice().IsActive(IInputEventService.VertualKey.NUM_6))
             ControllerCenter.Instance.AddMainPlayer(2);
 
