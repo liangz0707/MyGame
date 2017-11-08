@@ -30,9 +30,7 @@ public abstract class IShapeFactory
 
 // 角色（玩家，其他角色）工厂
 public abstract class IPlayerFactory
-{
-    public abstract PlayerProduct CreatePlayer(MoveInputController m_ic, CameraInputController m_icam, Camera m_camera);
-    public abstract PlayerProduct CreatePlayer(MoveInputController m_ic, CameraInputController m_icam, Camera m_camera, BuffController m_cbuff);
+{ 
     public abstract PlayerProduct CreateElsePlayer();
     public abstract PlayerProduct CreatePlayer(String modeName);
 }
