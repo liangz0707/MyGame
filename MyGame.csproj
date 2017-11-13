@@ -93,6 +93,7 @@
     <Compile Include="Assets\Script\Factory\EC_Factory_Buff.cs" />
     <Compile Include="Assets\Script\Factory\EC_Factory_Player.cs" />
     <Compile Include="Assets\Script\Factory\EC_Factory_Shape.cs" />
+    <Compile Include="Assets\Script\Factory\EC_Factory_Skill.cs" />
     <Compile Include="Assets\Script\Factory\EC_Product_Buff.cs" />
     <Compile Include="Assets\Script\Factory\EC_Product_Player.cs" />
     <Compile Include="Assets\Script\Factory\EC_Product_Shape.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="Assets\Script\Service\DP_NetService.cs" />
     <Compile Include="Assets\Script\Service\DP_PositionService.cs" />
     <Compile Include="Assets\Script\Service\DP_ShaderService.cs" />
+    <Compile Include="Assets\Script\Service\DP_SkillControlService.cs" />
     <Compile Include="Assets\Script\Service\Service.cs" />
   </ItemGroup>
   <ItemGroup>

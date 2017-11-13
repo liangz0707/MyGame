@@ -28,12 +28,12 @@ public class SkillManager
     {
         m_skills = new List<ISkillProduct>();
     }
-    public void AddPlayer(ISkillProduct skill)
+    public void AddSkill(ISkillProduct skill)
     {
         m_skills.Add(skill);
     }
 
-    public void RemoveShape(ISkillProduct skill)
+    public void RemoveSkill(ISkillProduct skill)
     {
         m_skills.Remove(skill);
     }

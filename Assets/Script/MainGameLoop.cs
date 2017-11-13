@@ -9,6 +9,9 @@ public class MainGameLoop : MonoBehaviour {
         PlayerFactory f = new PlayerFactory();
         f.CreatePlayer("Cube");
 
+        // 通过工厂创建时技能的释放过程。
+        // 那技能的加载就是将技能命令提取出来。
+
         IInputEventService m_ec = new InputEventService();
         m_ec.SetKeyMapping();
         ServiceLocator.prodive(m_ec);
@@ -29,21 +32,18 @@ public class MainGameLoop : MonoBehaviour {
         ServiceLocator.prodive(m_mc);
 
         /*
-        技能控制器也是通过命令模式，一个技能就是一个命令。
+        技能控制器也是通过命令模式。
+        一个人使用一个技能命令。
+        传入技能id，在命令模式中通过技能ID调用工厂模式创建技能，并添加到skillMan当中。
+        在skillMan的update过程中，判断技能类型，控制BuffComp
         
-        1.他只要操作buff组件就可以了
-
-        就像鼠标移动控制摄像机组件
-        移动按键控制位置组件
-        2.最后是点击事件，控制ui和拾取组件。
-        第一第二项需要实现。
         ISkillControlService m_sc = new MouseControlService();
-        m_sc.AddCommand(IInputEventService.VertualKey.SKILL_1, new SkillCommandImpl());
-        m_sc.AddCommand(IInputEventService.VertualKey.SKILL_2, new SkillCommandImpl());
-        m_sc.AddCommand(IInputEventService.VertualKey.SKILL_3, new SkillCommandImpl());
+        m_sc.AddCommand(IInputEventService.VertualKey.SKILL_1, 技能id);
+        m_sc.AddCommand(IInputEventService.VertualKey.SKILL_2, 技能id);
+        m_sc.AddCommand(IInputEventService.VertualKey.SKILL_3, 技能id);
         ServiceLocator.prodive(m_sc);
         */
-        
+
         ControllerCenter.Instance.AddMainPlayer(0); // 这里内部使用了服务器定位提供的服务，但是没有报错 就是应为这个机制。
         ControllerCenter.Instance.SetCameraFollow(0);
     }
@@ -58,7 +58,6 @@ public class MainGameLoop : MonoBehaviour {
         ServiceLocator.getInputSetvice().MappingCommand();
         ServiceLocator.getMouseSetvice().MappingCommand();
 
-        
         // 控制中心会让所有的管理器去更新管理的内容。
         ControllerCenter.Instance.Update();
     }

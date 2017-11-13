@@ -10,6 +10,7 @@ class ControllerCenter
 {
     ShapeManager m_shapeMan;
     PlayerManager m_playerMan;
+    SkillManager m_skillMan;
 
     private static ControllerCenter instance = null;
 
@@ -46,6 +47,12 @@ class ControllerCenter
     {
         m_playerMan.SetCameraFollowPlayer(i);
     }
+
+    public void AddSkill(ISkillProduct skill)
+    {
+        m_skillMan.AddSkill(skill);
+    }
+
 
     // 单例的使用
     private ControllerCenter()
