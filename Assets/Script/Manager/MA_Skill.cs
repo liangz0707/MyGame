@@ -16,6 +16,10 @@
  * */
 using System.Collections.Generic;
 
+/*
+ * 维持过程特效，过程信息
+ * 没有过程信息就直接附加buff
+ * */
 public class SkillManager
 {
     List<ISkillProduct> m_skills;
@@ -48,7 +52,7 @@ public class SkillManager
             // 将技能存储的buff 放在角色身上。
               
             //  ** 放在角色身上这个过程就是通过工厂模式  调用需要的buff工厂并且把角色传进去
-                skill.Update();
+            skill.Update();
             // 移除技能
         }
     }

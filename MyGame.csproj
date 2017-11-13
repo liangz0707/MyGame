@@ -82,13 +82,12 @@
   <ItemGroup>
     <Compile Include="Assets\Script\Command\DP_CommandCamera.cs" />
     <Compile Include="Assets\Script\Command\DP_CommandMove.cs" />
+    <Compile Include="Assets\Script\Component\DP_Component_Attr.cs" />
     <Compile Include="Assets\Script\Component\DP_Component_Buff.cs" />
     <Compile Include="Assets\Script\Component\DP_Component_CameraFollow.cs" />
     <Compile Include="Assets\Script\Component\DP_Component_Move.cs" />
     <Compile Include="Assets\Script\Component\DP_Component_Render.cs" />
-    <Compile Include="Assets\Script\Controller\EC_Buff_Controller.cs" />
-    <Compile Include="Assets\Script\Controller\EC_CameraMove_Controller.cs" />
-    <Compile Include="Assets\Script\Controller\EC_PlayerMove_Controller.cs" />
+    <Compile Include="Assets\Script\Component\DP_Component_State.cs" />
     <Compile Include="Assets\Script\DP_ControllerCenter.cs" />
     <Compile Include="Assets\Script\Factory\DP_Factory.cs" />
     <Compile Include="Assets\Script\Factory\EC_Factory_Buff.cs" />
@@ -104,9 +103,9 @@
     <Compile Include="Assets\Script\SceneSate\DP_State.cs" />
     <Compile Include="Assets\Script\SceneSate\EC_SceneStateController.cs" />
     <Compile Include="Assets\Script\Service\DP_AudioService.cs" />
-    <Compile Include="Assets\Script\Service\DP_MouseControlService.cs" />
-    <Compile Include="Assets\Script\Service\DP_KeyboardControlService.cs" />
     <Compile Include="Assets\Script\Service\DP_InputEventService.cs" />
+    <Compile Include="Assets\Script\Service\DP_KeyboardControlService.cs" />
+    <Compile Include="Assets\Script\Service\DP_MouseControlService.cs" />
     <Compile Include="Assets\Script\Service\DP_NetService.cs" />
     <Compile Include="Assets\Script\Service\DP_PositionService.cs" />
     <Compile Include="Assets\Script\Service\DP_ShaderService.cs" />
@@ -115,7 +114,6 @@
   <ItemGroup>
     <None Include="Assets\Script\Command\Readme.txt" />
     <None Include="Assets\Script\Component\Readme.txt" />
-    <None Include="Assets\Script\Controller\Readme.txt" />
     <None Include="Assets\Script\Factory\Readme.txt" />
     <None Include="Assets\Script\Manager\Readme.txt" />
     <None Include="Assets\Script\SceneSate\Readme.txt" />

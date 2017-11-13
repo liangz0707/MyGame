@@ -15,6 +15,7 @@ public class MoveComponent
     private float m_gravity;
     private Terrain m_terrain;
     private float m_heightToFeet;
+    private bool m_bMovable;
     private Camera m_camera;
 
     public MoveComponent(Transform transform, float speed)
@@ -28,6 +29,12 @@ public class MoveComponent
         m_jumpSeed = 0;
         m_heightToFeet = 0.5f;
         m_camera = null;
+        m_bMovable = true;
+    }
+
+    public void SetCanMove(bool canMove)
+    {
+        m_bMovable = canMove;
     }
 
     public void SetCamera(Camera camera)
@@ -37,6 +44,8 @@ public class MoveComponent
 
     public void MoveForward()
     {
+        if (!m_bMovable) return;
+
         if (m_camera != null)
             m_position += m_camera.transform.forward * Time.deltaTime * m_fSpeed;
         else
@@ -45,6 +54,7 @@ public class MoveComponent
 
     public void MoveBack()
     {
+        if (!m_bMovable) return;
         if (m_camera != null)
             m_position += - m_camera.transform.forward * Time.deltaTime * m_fSpeed;
         else
@@ -53,6 +63,7 @@ public class MoveComponent
 
     public void MoveLeft()
     {
+        if (!m_bMovable) return;
         if (m_camera != null)
             m_position += - m_camera.transform.right * Time.deltaTime * m_fSpeed;
         else
@@ -61,6 +72,7 @@ public class MoveComponent
 
     public void MoveRight()
     {
+        if (!m_bMovable) return;
         if (m_camera != null)
             m_position += m_camera.transform.right * Time.deltaTime * m_fSpeed;
         else
@@ -69,6 +81,7 @@ public class MoveComponent
 
     public void MoveUp()
     {
+        if (!m_bMovable) return;
         if (m_camera != null)
             m_position += m_camera.transform.up * Time.deltaTime * m_fSpeed;
         else
@@ -77,6 +90,7 @@ public class MoveComponent
 
     public void MoveDown()
     {
+        if (!m_bMovable) return;
         if (m_camera != null)
             m_position += - m_camera.transform.up * Time.deltaTime * m_fSpeed;
         else
@@ -85,11 +99,13 @@ public class MoveComponent
 
     public void SetPosition(Vector3 pos)
     {
+        if (!m_bMovable) return;
         m_position = pos;
     }
 
     public void Jump()
     {
+        if (!m_bMovable) return;
         if (OnTheGround(m_position))
         {
             m_jumpSeed = m_maxSpeed;

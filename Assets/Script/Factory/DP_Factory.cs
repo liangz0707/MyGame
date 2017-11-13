@@ -59,6 +59,12 @@ public abstract class ISkillFactory
 // 所以创建buff的时候需要传入角色。
 public abstract class IBuffProduct
 {
+    public abstract bool BeforeAttached(List<IBuffProduct> lBuffs);//buff附加之前  返回是否能附加
+    public abstract bool AfterAttached(List<IBuffProduct> lBuffs);//buff附加时   
+    public abstract bool Update(List<IBuffProduct> lBuffs);//buff在角色身上   返回是否需要删除
+    public abstract bool Update(PlayerProduct player);//buff在角色身上   返回是否需要删除
+    public abstract bool BeforeRemove(List<IBuffProduct> lBuffs);//buff在离开角色身上时  返回是否能删除
+    public abstract bool AfterRemove(List<IBuffProduct> lBuffs);//buff在离开角色身上以后
 }
 
 public abstract class IBuffFactory

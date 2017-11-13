@@ -6,9 +6,6 @@ public class PlayerManager
     // 需要控制当前的摄像机指向谁
     // 需要记录控制器控制的是谁
     List<PlayerProduct> m_players;
-    MoveInputController m_ic;
-    CameraInputController m_icam;
-    BuffController m_cbuff;
     Camera m_camera;
     int m_curMainPlayerIndex;
 
@@ -18,10 +15,7 @@ public class PlayerManager
 
         // 摄像机
         m_camera = GameObject.Find("Camera").GetComponent<Camera>();
-
-        // buff控制器
-        m_cbuff = new BuffController();
-
+        
         m_players = new List<PlayerProduct>();
 
     }
@@ -48,7 +42,6 @@ public class PlayerManager
     {
         if (m_curMainPlayerIndex != -1 && i < m_players.Count && i >= 0 && m_players[i] != null)
         {
-            m_players[m_curMainPlayerIndex].RemoveBuffController();
             ServiceLocator.getMouseSetvice().RemoveControlComp();
             m_players[i].RemoveCameraCmp();
             m_curMainPlayerIndex = -1;
@@ -56,7 +49,6 @@ public class PlayerManager
 
         if (m_curMainPlayerIndex == -1 && i < m_players.Count && i >= 0 && m_players[i] != null)
         {
-            m_players[i].SetBuffController(m_cbuff);
             m_players[i].SetCameraCmp(m_camera);
             ServiceLocator.getMouseSetvice().SetControlComp(m_players[i].GetCameraComponent());
             m_curMainPlayerIndex = i;

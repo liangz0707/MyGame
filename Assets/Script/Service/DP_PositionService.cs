@@ -6,5 +6,15 @@ using UnityEditor;
  */
 public class PositionService 
 {
+    public void SearchPlayer(Vector3 pos)
+    {
+
+    }
+
+    // 更新他的位置。
+    public void AddPlayer()
+    {
+
+    }
 
 }

@@ -7,6 +7,11 @@ public class RenderComponent
         m_model = model;
     }
 
+    public GameObject GetModel()
+    {
+        return m_model;
+    }
+    
     public void Update()
     {
     }
