@@ -50,6 +50,8 @@ public class SkillManager
             // 根据技能类型 搜索地图，获取角色
 
             // 将技能存储的buff 放在角色身上。
+            // 附近角色的搜索
+            // 技能系统只能针对主要角色释放，所以这里的释放者就是playerMan.getMainPlayer, 只能有一个
               
             //  ** 放在角色身上这个过程就是通过工厂模式  调用需要的buff工厂并且把角色传进去
             skill.Update();

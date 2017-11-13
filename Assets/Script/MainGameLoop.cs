@@ -36,14 +36,13 @@ public class MainGameLoop : MonoBehaviour {
         一个人使用一个技能命令。
         传入技能id，在命令模式中通过技能ID调用工厂模式创建技能，并添加到skillMan当中。
         在skillMan的update过程中，判断技能类型，控制BuffComp
-        
-        ISkillControlService m_sc = new MouseControlService();
-        m_sc.AddCommand(IInputEventService.VertualKey.SKILL_1, 技能id);
-        m_sc.AddCommand(IInputEventService.VertualKey.SKILL_2, 技能id);
-        m_sc.AddCommand(IInputEventService.VertualKey.SKILL_3, 技能id);
+         */
+        ISkillControlService m_sc = new SkillControlService();
+        m_sc.AddCommand(IInputEventService.VertualKey.SKILL_1, SkillFactory.SKILL_ID.SKILL1);
+        m_sc.AddCommand(IInputEventService.VertualKey.SKILL_2, SkillFactory.SKILL_ID.SKILL2);
+        m_sc.AddCommand(IInputEventService.VertualKey.SKILL_3, SkillFactory.SKILL_ID.SKILL3);
         ServiceLocator.prodive(m_sc);
-        */
-
+       
         ControllerCenter.Instance.AddMainPlayer(0); // 这里内部使用了服务器定位提供的服务，但是没有报错 就是应为这个机制。
         ControllerCenter.Instance.SetCameraFollow(0);
     }

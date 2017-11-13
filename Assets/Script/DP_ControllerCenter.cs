@@ -76,7 +76,8 @@ class ControllerCenter
     public void Update()
     {
         m_shapeMan.Update();
-        m_playerMan.Update(); 
+        m_playerMan.Update();
+        m_skillMan.Update();
     }
 }
 
