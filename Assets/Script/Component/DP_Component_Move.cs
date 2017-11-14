@@ -5,7 +5,7 @@ using UnityEditor;
 /* *
  *  如何处理大坡度地形。
  * */
-public class MoveComponent
+public class MoveComponent : IMoveComponent
 {
     private Transform m_Transform;
     private Vector3 m_position;

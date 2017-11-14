@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-public class CameraComponent
+public class CameraComponent : ICameraComponent
 {
     private Transform m_aimTransform;
     private Transform m_transform;

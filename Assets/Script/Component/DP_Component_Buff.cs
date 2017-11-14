@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 // 现在的问题是如何让buff去处理角色的状态，通过设置标记？
-public class BuffComponent
+public class BuffComponent : IBuffComponent
 {
     private List<IBuffProduct> m_buffs;
 

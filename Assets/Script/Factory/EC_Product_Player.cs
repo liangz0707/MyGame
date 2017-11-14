@@ -5,14 +5,15 @@ using System.Collections.Generic;
 public class PlayerProduct
 {    
     // 下面是组件
-    private MoveComponent c_position;
-    private RenderComponent c_model;
-    private CameraComponent c_camera;
-    private BuffComponent c_buff;
+    private IMoveComponent c_position;
+    private ICameraComponent c_camera;
+    private IBuffComponent c_buff;
+    private ISkillComponent c_skill;
+    private IModelComponent c_model;
 
     // 可以用享元模式控制的内容：状态和属性
-    private StateComponent c_state;
-    private AttrComponent c_attr;
+    private IAttrComponent c_attr;
+    private IStateComponent c_state;
 
     public PlayerProduct(String modelName)
     {
@@ -31,9 +32,11 @@ public class PlayerProduct
         }
 
         // 组件
-        c_model = new RenderComponent(GameObject.CreatePrimitive(code));
+
+        c_model = new ModelComponent(GameObject.CreatePrimitive(code));
         c_state = new StateComponent(100, 100, 12.0f);
         c_position = new MoveComponent(c_model.GetModel().transform, c_state.MoveSpeed);
+        c_skill = new SkillComponent();
         c_buff = new BuffComponent();
         c_camera = null;
     }
@@ -54,21 +57,27 @@ public class PlayerProduct
             code = PrimitiveType.Capsule;
         }
 
-        c_model = new RenderComponent(GameObject.CreatePrimitive(code));
+        c_model = new ModelComponent(GameObject.CreatePrimitive(code));
         c_state = new StateComponent(100, 100, 12.0f);
         c_position = new MoveComponent(c_model.GetModel().transform, c_state.MoveSpeed);
         c_buff = new BuffComponent();
+        c_skill = new SkillComponent();
         c_camera = new CameraComponent(c_model.GetModel().transform, camera.transform);
     }
 
-    public MoveComponent GetMoveComponent()
+    public IMoveComponent GetMoveComponent()
     {
         return c_position;
     }
     
-    public BuffComponent GetBuffComponent()
+    public IBuffComponent GetBuffComponent()
     {
         return c_buff;
+    }
+
+    public ISkillComponent GetSkillComponent()
+    {
+        return c_skill;
     }
 
     public void SetCameraCmp(Camera camera)
@@ -77,7 +86,7 @@ public class PlayerProduct
         if(c_position!=null) c_position.SetCamera(camera);
     }
 
-    public CameraComponent GetCameraComponent()
+    public ICameraComponent GetCameraComponent()
     {
         return c_camera;
     }

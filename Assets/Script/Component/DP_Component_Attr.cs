@@ -7,7 +7,7 @@ using System.Text;
  * 最大生命，最大魔法
  * 智力，力量等待常态数值。
  */
-class AttrComponent
+public class AttrComponent : IAttrComponent
 {
     
     public void Update()

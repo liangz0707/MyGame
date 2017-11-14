@@ -82,12 +82,14 @@
   <ItemGroup>
     <Compile Include="Assets\Script\Command\DP_CommandCamera.cs" />
     <Compile Include="Assets\Script\Command\DP_CommandMove.cs" />
+    <Compile Include="Assets\Script\Component\DP_Component_Model.cs" />
+    <Compile Include="Assets\Script\Component\DP_Component_State.cs" />
     <Compile Include="Assets\Script\Component\DP_Component_Attr.cs" />
     <Compile Include="Assets\Script\Component\DP_Component_Buff.cs" />
     <Compile Include="Assets\Script\Component\DP_Component_CameraFollow.cs" />
     <Compile Include="Assets\Script\Component\DP_Component_Move.cs" />
-    <Compile Include="Assets\Script\Component\DP_Component_Render.cs" />
-    <Compile Include="Assets\Script\Component\DP_Component_State.cs" />
+    <Compile Include="Assets\Script\Component\DP_Component_Skill.cs" />
+    <Compile Include="Assets\Script\Component\DP_IComponent.cs" />
     <Compile Include="Assets\Script\DP_ControllerCenter.cs" />
     <Compile Include="Assets\Script\Factory\DP_Factory.cs" />
     <Compile Include="Assets\Script\Factory\EC_Factory_Buff.cs" />
@@ -97,19 +99,16 @@
     <Compile Include="Assets\Script\Factory\EC_Product_Buff.cs" />
     <Compile Include="Assets\Script\Factory\EC_Product_Player.cs" />
     <Compile Include="Assets\Script\Factory\EC_Product_Shape.cs" />
+    <Compile Include="Assets\Script\Factory\EC_Product_Skill.cs" />
     <Compile Include="Assets\Script\MainGameLoop.cs" />
     <Compile Include="Assets\Script\Manager\MA_Player.cs" />
     <Compile Include="Assets\Script\Manager\MA_Shape.cs" />
     <Compile Include="Assets\Script\Manager\MA_Skill.cs" />
     <Compile Include="Assets\Script\SceneSate\DP_State.cs" />
     <Compile Include="Assets\Script\SceneSate\EC_SceneStateController.cs" />
-    <Compile Include="Assets\Script\Service\DP_AudioService.cs" />
     <Compile Include="Assets\Script\Service\DP_InputEventService.cs" />
     <Compile Include="Assets\Script\Service\DP_KeyboardControlService.cs" />
     <Compile Include="Assets\Script\Service\DP_MouseControlService.cs" />
-    <Compile Include="Assets\Script\Service\DP_NetService.cs" />
-    <Compile Include="Assets\Script\Service\DP_PositionService.cs" />
-    <Compile Include="Assets\Script\Service\DP_ShaderService.cs" />
     <Compile Include="Assets\Script\Service\DP_SkillControlService.cs" />
     <Compile Include="Assets\Script\Service\Service.cs" />
   </ItemGroup>

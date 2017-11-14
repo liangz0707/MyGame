@@ -32,46 +32,29 @@ public abstract class IShapeFactory
 public abstract class IPlayerFactory
 { 
     public abstract PlayerProduct CreateElsePlayer();
-    public abstract PlayerProduct CreatePlayer(String modeName);
+    public abstract PlayerProduct CreateMainPlayer(String modeName);
 }
 
 
 // 技能工厂
 public abstract class ISkillProduct
 {
-    public abstract void Update();
+    public abstract bool Update();
 }
 
 public abstract class ISkillFactory
 {
-    public enum SKILL_ID
-    {
-        SKILL1,
-        SKILL2,
-        SKILL3,
-        SKILL4,
-        SKILL5
-    }
-
-    public enum SKILL_TYPE
-    {
-        TP1,
-        TP2,
-        TP3,
-        TP4,
-        TP5
-    }
-
     // 因为技能附带的是buff 所以只需要考虑范围，至于技能内容，由技能指向的buff决定。不同的构造只是因为范围需要不同的参数。
     // 技能最终要的内容就是角色的选定，需要判断周围角色的位置。
     // 这里其实可以直接通过ID来读取技能
     // 这里可能需要实现一个八叉树管理所有的位置信息。用于快速的计算技能范围。
-    public abstract ISkillProduct CreateSkill(SKILL_ID id);
-    public abstract ISkillProduct CreateAOESkill(SKILL_ID id); // 范围技能：定点范围， 自己为中心的范围
-    public abstract ISkillProduct CreatePersonSkill(SKILL_ID id); // 单人技能：给自己，给别人，给敌人。
-    public abstract ISkillProduct CreatePointSkill(SKILL_ID id); // 定点释放技能
-    public abstract ISkillProduct CreateDirectionSkil(SKILL_ID id); // 指向型技能
-    public abstract ISkillProduct CreateTeamSkil(SKILL_ID id); // 团队： 这就需要直接给定列表了
+    // 这里需要传入技能的释放者所包含的技能组件
+    public abstract ISkillProduct CreateSkill(SKILL_ID id, ISkillComponent skillComponent);
+    public abstract ISkillProduct CreateAOESkill(SKILL_ID id, ISkillComponent skillComponent); // 范围技能：定点范围， 自己为中心的范围
+    public abstract ISkillProduct CreatePersonSkill(SKILL_ID id, ISkillComponent skillComponent); // 单人技能：给自己，给别人，给敌人。
+    public abstract ISkillProduct CreatePointSkill(SKILL_ID id, ISkillComponent skillComponent); // 定点释放技能
+    public abstract ISkillProduct CreateDirectionSkil(SKILL_ID id, ISkillComponent skillComponent); // 指向型技能
+    public abstract ISkillProduct CreateTeamSkil(SKILL_ID id, ISkillComponent skillComponent); // 团队： 这就需要直接给定列表了
 }
 
 // Buff工厂，由于buff是附加在角色身上的，所以buff不需要加入到控制器当中，而是需要加入到角色当中，buff的处理也是在角色当中处理的。

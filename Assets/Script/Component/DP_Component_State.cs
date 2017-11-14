@@ -3,53 +3,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-/*
- * 角色状态组件，控制角色生命，魔法，
- * 在游戏中会变化的状态。
+/* 属性组件，所有的属性都是需要保存的
+ * 最大生命，最大魔法
+ * 智力，力量等待常态数值。
  */
-public class StateComponent
+public class StateComponent : IStateComponent
 {
-    private int m_iHealth;
     private int m_iMagic;
-    private int m_iShield;
+    private int m_iHealth;
     private float m_fMoveSpeed;
 
-    public int Health //生命
+    public int Magic
     {
-        get { return m_iHealth; }
-        set { m_iHealth = value; }
-    }
-    public int Magic  //魔法
-    {
-        get { return m_iMagic; }
         set { m_iMagic = value; }
-    }
-    public int Shield //护盾
-    {
-        get { return m_iShield; }
-        set { m_iShield = value; }
+        get { return m_iMagic; }
     }
 
-    public float MoveSpeed //护盾
+    public int Health
     {
+        set { m_iHealth = value; }
+        get { return m_iHealth; }
+    }
+
+    public float MoveSpeed
+    {
+        set { m_fMoveSpeed = value;  }
         get { return m_fMoveSpeed; }
-        set { m_fMoveSpeed = value; }
     }
 
-    public StateComponent(int Health, int iMagic)
+    public StateComponent(int iMagic, int iHealth, float fMoveSpeed)
     {
-        m_iHealth = Health;
         m_iMagic = iMagic;
-        m_iShield = 0;
-        m_fMoveSpeed = 5.0f;
+        m_iHealth = iHealth;
+        m_fMoveSpeed = fMoveSpeed;
     }
-
-    public StateComponent(int Health, int iMagic ,float MoveSpeed)
+    
+    public void Update()
     {
-        m_iHealth = Health;
-        m_iMagic = iMagic;
-        m_iShield = 0;
-        m_fMoveSpeed = MoveSpeed;
-    }
 
+    }
 }

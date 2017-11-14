@@ -11,11 +11,11 @@ public class PlayerFactory :IPlayerFactory
         return new PlayerProduct("Shpere");
     }
     
-    public override PlayerProduct CreatePlayer(String modeName)
+    public override PlayerProduct CreateMainPlayer(String modeName)
     {
         PlayerProduct m_player;
         m_player = new PlayerProduct(modeName);
-        ControllerCenter.Instance.AddPlayer(m_player);
+        ControllerCenter.Instance.SetMainPlayer(m_player);
         return m_player;
     }
 

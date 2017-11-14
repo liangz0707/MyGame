@@ -7,41 +7,44 @@ using System.Text;
 class SkillFactory : ISkillFactory
 {
 
-    public override ISkillProduct CreateSkill(SKILL_ID id)
+    public override ISkillProduct CreateSkill(SKILL_ID id, ISkillComponent skillComponent)
     {
-        //判断技能类型进入不同的子方法：
-        /*
-        switch ()
+        ISkillProduct skill = null;
+        switch (id)
         {
-            case ISkillFactory.TY1:
-
-        }*/
-        ISkillProduct skill = null; // 配置一些状态。
+            case SKILL_ID.SKILL_1: skill = new SkillProduct1(skillComponent); break;
+            case SKILL_ID.SKILL_2: skill = new SkillProduct2(skillComponent); break;
+            case SKILL_ID.SKILL_3: skill = new SkillProduct3(skillComponent); break;
+            case SKILL_ID.SKILL_4: skill = new SkillProduct4(skillComponent); break;
+            case SKILL_ID.SKILL_5: skill = new SkillProduct5(skillComponent); break;
+            case SKILL_ID.SKILL_6: skill = new SkillProduct6(skillComponent); break;
+            default: skill = new NullSkillProduct(); break;
+        }
         ControllerCenter.Instance.AddSkill(skill);
-        return null;
+        return skill;
     }
 
-    public override ISkillProduct CreateAOESkill(SKILL_ID id)
+    public override ISkillProduct CreateAOESkill(SKILL_ID id, ISkillComponent skillComponent)
     {
         throw new NotImplementedException();
     }
 
-    public override ISkillProduct CreateDirectionSkil(SKILL_ID id)
+    public override ISkillProduct CreateDirectionSkil(SKILL_ID id, ISkillComponent skillComponent)
     {
         throw new NotImplementedException();
     }
 
-    public override ISkillProduct CreatePersonSkill(SKILL_ID id)
+    public override ISkillProduct CreatePersonSkill(SKILL_ID id, ISkillComponent skillComponent)
     {
         throw new NotImplementedException();
     }
 
-    public override ISkillProduct CreatePointSkill(SKILL_ID id)
+    public override ISkillProduct CreatePointSkill(SKILL_ID id, ISkillComponent skillComponent)
     {
         throw new NotImplementedException();
     }
 
-    public override ISkillProduct CreateTeamSkil(SKILL_ID id)
+    public override ISkillProduct CreateTeamSkil(SKILL_ID id, ISkillComponent skillComponent)
     {
         throw new NotImplementedException();
     }
