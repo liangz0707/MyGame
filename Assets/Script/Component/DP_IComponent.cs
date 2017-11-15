@@ -27,11 +27,6 @@ public interface IMoveComponent
     void Update();
 }
 
-public interface ISkillComponent
-{
-
-}
-
 public interface IStateComponent 
 {
     int Health { get; set; }
@@ -54,7 +49,7 @@ public interface IModelComponent
 
 public interface IBuffComponent
 {
-    void AddBuff(IBuffProduct buff);
+    bool AddBuff(IBuffProduct buff);
     void Update();
     void UpdateState(PlayerProduct player);
 }

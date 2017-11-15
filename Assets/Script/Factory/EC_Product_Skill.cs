@@ -31,10 +31,10 @@ public class NullSkillProduct : ISkillProduct
 public class SkillProduct1 : ISkillProduct
 {
     static SKILL_ID SkillID = SKILL_ID.SKILL_1;
-    ISkillComponent c_skillComponent;
-    public SkillProduct1(ISkillComponent skillComponent)
+    PlayerProduct m_player;
+    public SkillProduct1(PlayerProduct player)
     {
-        c_skillComponent = skillComponent;
+        m_player = player;
     }
 
     public override bool Update()
@@ -46,10 +46,10 @@ public class SkillProduct1 : ISkillProduct
 public class SkillProduct2 : ISkillProduct
 {
     static SKILL_ID SkillID = SKILL_ID.SKILL_2;
-    ISkillComponent c_skillComponent;
-    public SkillProduct2(ISkillComponent skillComponent)
+    PlayerProduct m_player;
+    public SkillProduct2(PlayerProduct player)
     {
-        c_skillComponent = skillComponent;
+        m_player = player;
     }
 
     public override bool Update()
@@ -69,13 +69,15 @@ public class SkillProduct2 : ISkillProduct
 public class SkillProduct3 : ISkillProduct
 {
     static SKILL_ID SkillID = SKILL_ID.SKILL_3;
-    ISkillComponent c_skillComponent;
-    public SkillProduct3(ISkillComponent skillComponent)
+    PlayerProduct m_player;
+    public SkillProduct3(PlayerProduct player)
     {
-        c_skillComponent = skillComponent;
+        m_player = player;
     }
     public override bool Update()
     {
+        IBuffFactory buffFactory = new BuffFactory();
+        buffFactory.CreateImtHurtBuff(m_player);
         return true;
     }
 }
@@ -83,10 +85,10 @@ public class SkillProduct3 : ISkillProduct
 public class SkillProduct4 : ISkillProduct
 {
     static SKILL_ID SkillID = SKILL_ID.SKILL_4;
-    ISkillComponent c_skillComponent;
-    public SkillProduct4(ISkillComponent skillComponent)
+    PlayerProduct m_player;
+    public SkillProduct4(PlayerProduct player)
     {
-        c_skillComponent = skillComponent;
+        m_player = player;
     }
     public override bool Update()
     {
@@ -97,10 +99,10 @@ public class SkillProduct4 : ISkillProduct
 public class SkillProduct5 : ISkillProduct
 {
     static SKILL_ID SkillID = SKILL_ID.SKILL_5;
-    ISkillComponent c_skillComponent;
-    public SkillProduct5(ISkillComponent skillComponent)
+    PlayerProduct m_player;
+    public SkillProduct5(PlayerProduct player)
     {
-        c_skillComponent = skillComponent;
+        m_player = player;
     }
     public override bool Update()
     {
@@ -111,10 +113,10 @@ public class SkillProduct5 : ISkillProduct
 public class SkillProduct6 : ISkillProduct
 {
     static SKILL_ID SkillID = SKILL_ID.SKILL_6;
-    ISkillComponent c_skillComponent;
-    public SkillProduct6(ISkillComponent skillComponent)
+    PlayerProduct m_player;
+    public SkillProduct6(PlayerProduct player)
     {
-        c_skillComponent = skillComponent;
+        m_player = player;
     }
     public override bool Update()
     {

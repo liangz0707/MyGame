@@ -88,7 +88,6 @@
     <Compile Include="Assets\Script\Component\DP_Component_Buff.cs" />
     <Compile Include="Assets\Script\Component\DP_Component_CameraFollow.cs" />
     <Compile Include="Assets\Script\Component\DP_Component_Move.cs" />
-    <Compile Include="Assets\Script\Component\DP_Component_Skill.cs" />
     <Compile Include="Assets\Script\Component\DP_IComponent.cs" />
     <Compile Include="Assets\Script\DP_ControllerCenter.cs" />
     <Compile Include="Assets\Script\Factory\DP_Factory.cs" />

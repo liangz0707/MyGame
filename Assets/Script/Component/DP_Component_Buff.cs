@@ -13,12 +13,17 @@ public class BuffComponent : IBuffComponent
         m_buffs = new List<IBuffProduct>();
     }
 
-    public void AddBuff(IBuffProduct buff)
+    public bool AddBuff(IBuffProduct buff)
     {
         if(buff.BeforeAttached(m_buffs))
         {
             m_buffs.Add(buff);
             buff.AfterAttached(m_buffs);
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
