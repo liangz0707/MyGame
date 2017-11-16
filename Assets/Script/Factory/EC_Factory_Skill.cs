@@ -9,16 +9,33 @@ class SkillFactory : ISkillFactory
 
     public override ISkillProduct CreateSkill(SKILL_ID id)
     {
-        PlayerProduct player = ControllerCenter.Instance.GetMainPlayer();
+        ISkillCasterComponent caster = ControllerCenter.Instance.GetMainPlayer().GetSkillCaster();
         ISkillProduct skill = null;
         switch (id)
         {
-            case SKILL_ID.SKILL_1: skill = new SkillProduct1(player); break;
-            case SKILL_ID.SKILL_2: skill = new SkillProduct2(player); break;
-            case SKILL_ID.SKILL_3: skill = new SkillProduct3(player); break;
-            case SKILL_ID.SKILL_4: skill = new SkillProduct4(player); break;
-            case SKILL_ID.SKILL_5: skill = new SkillProduct5(player); break;
-            case SKILL_ID.SKILL_6: skill = new SkillProduct6(player); break;
+            case SKILL_ID.SKILL_1: skill = new SkillProduct1(caster); break;
+            case SKILL_ID.SKILL_2: skill = new SkillProduct2(caster); break;
+            case SKILL_ID.SKILL_3: skill = new SkillProduct3(caster); break;
+            case SKILL_ID.SKILL_4: skill = new SkillProduct4(caster); break;
+            case SKILL_ID.SKILL_5: skill = new SkillProduct5(caster); break;
+            case SKILL_ID.SKILL_6: skill = new SkillProduct6(caster); break;
+            default: skill = new NullSkillProduct(); break;
+        }
+        ControllerCenter.Instance.AddSkill(skill);
+        return skill;
+    }
+
+    public override ISkillProduct CreateSkill(ISkillCasterComponent caster, SKILL_ID id)
+    {
+        ISkillProduct skill = null;
+        switch (id)
+        {
+            case SKILL_ID.SKILL_1: skill = new SkillProduct1(caster); break;
+            case SKILL_ID.SKILL_2: skill = new SkillProduct2(caster); break;
+            case SKILL_ID.SKILL_3: skill = new SkillProduct3(caster); break;
+            case SKILL_ID.SKILL_4: skill = new SkillProduct4(caster); break;
+            case SKILL_ID.SKILL_5: skill = new SkillProduct5(caster); break;
+            case SKILL_ID.SKILL_6: skill = new SkillProduct6(caster); break;
             default: skill = new NullSkillProduct(); break;
         }
         ControllerCenter.Instance.AddSkill(skill);

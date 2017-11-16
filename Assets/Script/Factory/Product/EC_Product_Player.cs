@@ -9,6 +9,7 @@ public class PlayerProduct
     private ICameraComponent c_camera;
     private IBuffComponent c_buff;
     private IModelComponent c_model;
+    private ISkillCasterComponent c_skill;
 
     // 可以用享元模式控制的内容：状态和属性
     private IAttrComponent c_attr;
@@ -31,7 +32,6 @@ public class PlayerProduct
         }
 
         // 组件
-
         c_model = new ModelComponent(GameObject.CreatePrimitive(code));
         c_state = new StateComponent(100, 100, 12.0f);
         c_position = new MoveComponent(c_model.GetModel().transform, c_state.MoveSpeed);
@@ -65,6 +65,11 @@ public class PlayerProduct
     public void AddBuff(IBuffProduct buff)
     {
         c_buff.AddBuff(buff);
+    }
+
+    public ISkillCasterComponent GetSkillCaster()
+    {
+        return c_skill;
     }
 
     public IMoveComponent GetMoveComponent()

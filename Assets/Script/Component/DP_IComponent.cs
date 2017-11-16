@@ -53,3 +53,11 @@ public interface IBuffComponent
     void Update();
     void UpdateState(PlayerProduct player);
 }
+
+public interface ISkillCasterComponent
+{
+    void SetAim();
+    ISkillCasterComponent GetAims();
+    
+    Vector3 GetPosition();
+}

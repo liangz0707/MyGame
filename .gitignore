@@ -12,3 +12,6 @@ Library/*
 Temp
 Temp/*
 
+/Assets/JMO Assets
+/Assets/SkillPartical
+*.meta

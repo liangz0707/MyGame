@@ -53,7 +53,7 @@ public class MainGameLoop : MonoBehaviour {
         // 处理每一个虚拟按键的消息
         ServiceLocator.getInputSetvice().MappingCommand(ControllerCenter.Instance.GetMainPlayer().GetMoveComponent());
         ServiceLocator.getMouseSetvice().MappingCommand(ControllerCenter.Instance.GetMainPlayer().GetCameraComponent());
-        ServiceLocator.getSkillSetvice().MappingCommand();
+        ServiceLocator.getSkillSetvice().MappingCommand(ControllerCenter.Instance.GetMainPlayer().GetSkillCaster());
 
         // 控制中心会让所有的管理器去更新管理的内容。
         ControllerCenter.Instance.Update();

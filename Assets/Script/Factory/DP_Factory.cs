@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 
 /* *
@@ -48,6 +46,7 @@ public abstract class ISkillFactory
     // 技能最终要的内容就是角色的选定，需要判断周围角色的位置。
     // 这里其实可以直接通过ID来读取技能
     // 这里可能需要实现一个八叉树管理所有的位置信息。用于快速的计算技能范围。
+    public abstract ISkillProduct CreateSkill(ISkillCasterComponent skillCaster, SKILL_ID id);
     public abstract ISkillProduct CreateSkill(SKILL_ID id);
     public abstract ISkillProduct CreateAOESkill(SKILL_ID id); // 范围技能：定点范围， 自己为中心的范围
     public abstract ISkillProduct CreatePersonSkill(SKILL_ID id); // 单人技能：给自己，给别人，给敌人。

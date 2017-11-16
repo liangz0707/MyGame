@@ -2,13 +2,13 @@
 
 public abstract class ISkillControlService
 {
-    public abstract void MappingCommand();
+    public abstract void MappingCommand(ISkillCasterComponent skillCaster);
     public abstract void AddCommand(IInputEventService.VertualKey vk, SKILL_ID skill);
 }  
 
 public class NullSkillControlService : ISkillControlService
 {
-    public override void MappingCommand()
+    public override void MappingCommand(ISkillCasterComponent skillCaster)
     {
 
     }
@@ -27,7 +27,7 @@ public class SkillControlService : ISkillControlService
         m_Dictionary = new Dictionary<IInputEventService.VertualKey, SKILL_ID>();
     }
 
-    public override void MappingCommand()
+    public override void MappingCommand(ISkillCasterComponent skillCaster)
     {
         Dictionary<IInputEventService.VertualKey, SKILL_ID>.KeyCollection keyCol = m_Dictionary.Keys;
         foreach (KeyValuePair<IInputEventService.VertualKey, SKILL_ID> kvp in m_Dictionary)
@@ -35,7 +35,7 @@ public class SkillControlService : ISkillControlService
             if (ServiceLocator.getEventSetvice().IsActive(kvp.Key))
             {
                 ISkillFactory skillFactory = new SkillFactory();
-                skillFactory.CreateSkill(kvp.Value);
+                skillFactory.CreateSkill(skillCaster, kvp.Value);
             }
         }
     }

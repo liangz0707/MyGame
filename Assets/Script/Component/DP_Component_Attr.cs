@@ -9,7 +9,6 @@ using System.Text;
  */
 public class AttrComponent : IAttrComponent
 {
-    
     public void Update()
     {
 
