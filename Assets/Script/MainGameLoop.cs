@@ -4,9 +4,9 @@ using UnityEngine;
 
 // 做一些杂乱的工作，和游戏主循环。
 public class MainGameLoop : MonoBehaviour {
-   
-    public void Start () {
 
+    public void Start () {
+  
         PlayerFactory f = new PlayerFactory();
         
         PlayerProduct p = f.CreateMainPlayer("Cube");
@@ -29,17 +29,17 @@ public class MainGameLoop : MonoBehaviour {
         ServiceLocator.prodive(m_ic);
 
         IMouseControlService m_mc = new MouseControlService();
-        m_mc.AddCommand(IInputEventService.VertualKey.MOUSE_RIGHTBUTTON_DOWN, new CameraTurnRightCommandImpl());
-        m_mc.AddCommand(IInputEventService.VertualKey.MOUSE_LEFTBUTTON_DOWN, new CameraTurnLeftCommandImpl());
+        m_mc.AddCommand(IInputEventService.VertualKey.MOUSE_RIGHTBUTTON_DOWN, new CameraRightCommandImpl());
+        m_mc.AddCommand(IInputEventService.VertualKey.MOUSE_LEFTBUTTON_DOWN, new CameraLeftCommandImpl());
         m_mc.AddCommand(IInputEventService.VertualKey.MOUSE_MIDBUTTON_DOWN, new CameraZoomCommandImpl());
         ServiceLocator.prodive(m_mc);
  
         ISkillControlService m_sc = new SkillControlService();
-        m_sc.AddCommand(IInputEventService.VertualKey.SKILL_1, SKILL_ID.SKILL_1);
-        m_sc.AddCommand(IInputEventService.VertualKey.SKILL_2, SKILL_ID.SKILL_2);
-        m_sc.AddCommand(IInputEventService.VertualKey.SKILL_3, SKILL_ID.SKILL_3);
-        m_sc.AddCommand(IInputEventService.VertualKey.SKILL_4, SKILL_ID.SKILL_4);
-        m_sc.AddCommand(IInputEventService.VertualKey.SKILL_5, SKILL_ID.SKILL_5);
+        m_sc.AddCommand(IInputEventService.VertualKey.NUM_1, SKILL_ID.SKILL_1);
+        m_sc.AddCommand(IInputEventService.VertualKey.NUM_2, SKILL_ID.SKILL_2);
+        m_sc.AddCommand(IInputEventService.VertualKey.NUM_3, SKILL_ID.SKILL_3);
+        m_sc.AddCommand(IInputEventService.VertualKey.NUM_4, SKILL_ID.SKILL_4);
+        m_sc.AddCommand(IInputEventService.VertualKey.NUM_5, SKILL_ID.SKILL_5);
         ServiceLocator.prodive(m_sc);
 
     }

@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.6.1f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -96,7 +98,7 @@
     <Compile Include="Assets\Script\Command\DP_CommandMove.cs" />
     <Compile Include="Assets\Script\Component\DP_Component_Attr.cs" />
     <Compile Include="Assets\Script\Component\DP_Component_Buff.cs" />
-    <Compile Include="Assets\Script\Component\DP_Component_CameraFollow.cs" />
+    <Compile Include="Assets\Script\Component\DP_Component_Camera.cs" />
     <Compile Include="Assets\Script\Component\DP_Component_Model.cs" />
     <Compile Include="Assets\Script\Component\DP_Component_Move.cs" />
     <Compile Include="Assets\Script\Component\DP_Component_SkillCaster.cs" />

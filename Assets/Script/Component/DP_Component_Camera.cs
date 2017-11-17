@@ -12,13 +12,15 @@ public class CameraComponent : ICameraComponent
     private float m_fZoomSpeed;
     private const float MAX_DISTANCE = 80; // 摄像机到角色的距离
     private const float MIN_DISTANCE = 10; // 摄像机到角色的距离
+    private Camera m_camera;
 
-    public CameraComponent(Transform aimTransform, Transform cameraTransform)
+    public CameraComponent(Transform aimTransform, Camera camera)
     {
-        m_transform = cameraTransform;
+        m_camera = camera;
+        m_transform = camera.transform;
         m_aimTransform = aimTransform;
 
-        m_dir = cameraTransform.position - aimTransform.position;
+        m_dir = m_transform.position - aimTransform.position;
         m_dir.Normalize();
         m_distance = 50;
         m_curDistance = 50;
@@ -87,5 +89,10 @@ public class CameraComponent : ICameraComponent
         GetCollider();
         m_transform.position = m_position;
         m_transform.LookAt(m_aimTransform.position);
+    }
+
+    public Ray ScreenPointToRay(Vector3 pos)
+    {
+        return m_camera.ScreenPointToRay(pos);
     }
 }

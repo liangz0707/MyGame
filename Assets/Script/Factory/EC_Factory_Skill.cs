@@ -27,6 +27,8 @@ class SkillFactory : ISkillFactory
 
     public override ISkillProduct CreateSkill(ISkillCasterComponent caster, SKILL_ID id)
     {
+        // 需要根据技能的id ，搜索技能的目标。
+        // 释放技能的时候，把技能的目标，放到caster当中。 
         ISkillProduct skill = null;
         switch (id)
         {

@@ -36,6 +36,7 @@ public class PlayerProduct
         c_state = new StateComponent(100, 100, 12.0f);
         c_position = new MoveComponent(c_model.GetModel().transform, c_state.MoveSpeed);
         c_buff = new BuffComponent();
+        c_skill = new SkillCasterComponent(c_model.GetModel().transform);
         c_camera = null;
     }
 
@@ -59,7 +60,8 @@ public class PlayerProduct
         c_state = new StateComponent(100, 100, 12.0f);
         c_position = new MoveComponent(c_model.GetModel().transform, c_state.MoveSpeed);
         c_buff = new BuffComponent();
-        c_camera = new CameraComponent(c_model.GetModel().transform, camera.transform);
+        c_skill = new SkillCasterComponent(c_model.GetModel().transform);
+        c_camera = new CameraComponent(c_model.GetModel().transform, camera);
     }
 
     public void AddBuff(IBuffProduct buff)
@@ -84,7 +86,7 @@ public class PlayerProduct
 
     public void SetCameraCmp(Camera camera)
     {
-        c_camera = new CameraComponent(c_model.GetModel().transform, camera.transform);
+        c_camera = new CameraComponent(c_model.GetModel().transform, camera);
         if(c_position!=null) c_position.SetCamera(camera);
     }
 

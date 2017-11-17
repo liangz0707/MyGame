@@ -9,7 +9,7 @@ public abstract class AbstractCameraCommand
 
 }
 
-public class CameraTurnRightCommandImpl : AbstractCameraCommand
+public class CameraRightCommandImpl : AbstractCameraCommand
 {
     public override void Execute(ICameraComponent posComponent, float xOffset, float yOffset, float zoomOffset, float x, float y)
     {
@@ -18,10 +18,17 @@ public class CameraTurnRightCommandImpl : AbstractCameraCommand
     }
 }
 
-public class CameraTurnLeftCommandImpl : AbstractCameraCommand
+public class CameraLeftCommandImpl : AbstractCameraCommand
 {
     public override void Execute(ICameraComponent posComponent, float xOffset, float yOffset, float zoomOffset, float x, float y)
     {
+        RaycastHit hit;
+        bool isHit = Physics.Raycast(posComponent.ScreenPointToRay(new Vector3(x,y,0)), out hit, 100f);
+        if (isHit)
+        {
+            // 左键拾取。
+            // 这里需要对场景中的所有可以去物品进行管理：SetAim(hit.collider.gameObject.name);
+        }
     }
 }
 

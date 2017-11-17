@@ -7,6 +7,7 @@ public interface ICameraComponent
     void TurnVerticel(float yOffset);
     void Update();
     void ZoomIn(float zoomSpeed);
+    Ray ScreenPointToRay(Vector3 pos);
 }
 
 public interface IMoveComponent
