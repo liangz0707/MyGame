@@ -55,6 +55,9 @@ public class MainGameLoop : MonoBehaviour {
         ServiceLocator.getMouseSetvice().MappingCommand(ControllerCenter.Instance.GetMainPlayer().GetCameraComponent());
         ServiceLocator.getSkillSetvice().MappingCommand(ControllerCenter.Instance.GetMainPlayer().GetSkillCaster());
 
+        // 处理网络消息
+
+        // 处理状态需
         // 控制中心会让所有的管理器去更新管理的内容。
         ControllerCenter.Instance.Update();
     }

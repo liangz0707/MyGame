@@ -41,4 +41,15 @@ public class SkillCasterComponent : ISkillCasterComponent
     {
         throw new NotImplementedException();
     }
+
+
+    public void CreateSkill(SKILL_ID skillId)
+    {
+        // 创建的这个技能一开始还是属于刚刚添加，然后需要进入前摇阶段。
+        // 前摇结束，进入释放阶段（一瞬间）
+        // 后摇收尾阶段。
+
+        ISkillFactory skillFactory = new SkillFactory();
+        skillFactory.CreateSkill(skillId);
+    }
 }

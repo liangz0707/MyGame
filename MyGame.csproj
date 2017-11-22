@@ -130,6 +130,8 @@
     <Compile Include="Assets\Script\Service\DP_MouseControlService.cs" />
     <Compile Include="Assets\Script\Service\DP_SkillControlService.cs" />
     <Compile Include="Assets\Script\Service\Service.cs" />
+    <Compile Include="Assets\Script\State\DP_StateHolder_Player.cs" />
+    <Compile Include="Assets\Script\State\State\DP_State_Player.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\JMO Assets\!JMO Assets Readme.txt" />
@@ -156,6 +158,7 @@
     <None Include="Assets\Script\SceneSate\Readme.txt" />
     <None Include="Assets\Shader\TerrainShader.shader" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
 </Project>

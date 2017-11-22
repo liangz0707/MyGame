@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class PlayerProduct
+public class PlayerProduct:IPlayerStateHolder
 {    
     // 下面是组件
     private IMoveComponent c_position;
@@ -14,6 +14,8 @@ public class PlayerProduct
     // 可以用享元模式控制的内容：状态和属性
     private IAttrComponent c_attr;
     private IStateComponent c_state;
+
+    private IPlayerState s_state;
 
     public PlayerProduct(String modelName)
     {
@@ -38,6 +40,8 @@ public class PlayerProduct
         c_buff = new BuffComponent();
         c_skill = new SkillCasterComponent(c_model.GetModel().transform);
         c_camera = null;
+
+        SetState(new PlayerNormal());
     }
 
     public PlayerProduct(String modelName, Camera camera)
@@ -62,6 +66,8 @@ public class PlayerProduct
         c_buff = new BuffComponent();
         c_skill = new SkillCasterComponent(c_model.GetModel().transform);
         c_camera = new CameraComponent(c_model.GetModel().transform, camera);
+
+        SetState(new PlayerNormal());
     }
 
     public void AddBuff(IBuffProduct buff)
@@ -84,28 +90,33 @@ public class PlayerProduct
         return c_buff;
     }
 
+    public ICameraComponent GetCameraComponent()
+    {
+        return c_camera;
+    }
+
+    public IModelComponent GetModelComponent()
+    {
+        return c_model;
+    }
+
     public void SetCameraCmp(Camera camera)
     {
         c_camera = new CameraComponent(c_model.GetModel().transform, camera);
         if(c_position!=null) c_position.SetCamera(camera);
     }
 
-    public ICameraComponent GetCameraComponent()
-    {
-        return c_camera;
-    }
-
     public void RemoveCameraCmp()
     {
         c_camera = null;
     }
-    
+
     public void Update()
     {
         // 组件更新
-        if(c_position != null) c_position.Update();
-        if(c_camera !=null) c_camera.Update();
-        if(c_model != null) c_model.Update();
+        if (c_position != null) c_position.Update();
+        if (c_camera != null) c_camera.Update();
+        if (c_model != null) c_model.Update();
         if (c_buff != null)
         {
             c_buff.Update();

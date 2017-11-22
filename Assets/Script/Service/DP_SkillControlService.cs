@@ -34,8 +34,7 @@ public class SkillControlService : ISkillControlService
         {
             if (ServiceLocator.getEventSetvice().IsActive(kvp.Key))
             {
-                ISkillFactory skillFactory = new SkillFactory();
-                skillFactory.CreateSkill(skillCaster, kvp.Value);
+                skillCaster.CreateSkill(kvp.Value);
             }
         }
     }

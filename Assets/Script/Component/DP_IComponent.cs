@@ -61,4 +61,6 @@ public interface ISkillCasterComponent
     ISkillCasterComponent GetAims();
     
     Vector3 GetPosition();
+
+    void CreateSkill(SKILL_ID skillId);
 }

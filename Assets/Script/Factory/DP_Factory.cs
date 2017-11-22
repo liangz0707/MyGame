@@ -45,7 +45,9 @@ public abstract class ISkillFactory
     // 因为技能附带的是buff 所以只需要考虑范围，至于技能内容，由技能指向的buff决定。不同的构造只是因为范围需要不同的参数。
     // 技能最终要的内容就是角色的选定，需要判断周围角色的位置。
     // 这里其实可以直接通过ID来读取技能
-    // 这里可能需要实现一个八叉树管理所有的位置信息。用于快速的计算技能范围。
+
+    // 这里可能需要实现一个八叉树管理所有的位置信息。用于快速的计算技能范围，不同内容需要有不同的搜索目标的方法。
+    // 先实现最基础的搜索功能吧。
     public abstract ISkillProduct CreateSkill(ISkillCasterComponent skillCaster, SKILL_ID id);
     public abstract ISkillProduct CreateSkill(SKILL_ID id);
     public abstract ISkillProduct CreateAOESkill(SKILL_ID id); // 范围技能：定点范围， 自己为中心的范围
@@ -53,6 +55,8 @@ public abstract class ISkillFactory
     public abstract ISkillProduct CreatePointSkill(SKILL_ID id); // 定点释放技能
     public abstract ISkillProduct CreateDirectionSkil(SKILL_ID id); // 指向型技能
     public abstract ISkillProduct CreateTeamSkil(SKILL_ID id); // 团队： 这就需要直接给定列表了
+
+    // 还需要接一个产生释放物体的特效，透支，发生碰撞后出发。活在某个时候出发。 这个应该是生产物体，这个物体在结束时可以释放技能。
 }
 
 // Buff工厂，由于buff是附加在角色身上的，所以buff不需要加入到控制器当中，而是需要加入到角色当中，buff的处理也是在角色当中处理的。
