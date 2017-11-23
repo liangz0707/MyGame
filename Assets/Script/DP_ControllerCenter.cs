@@ -10,6 +10,7 @@ class ControllerCenter
 {
     ShapeManager m_shapeMan;
     PlayerManager m_playerMan;
+    SkillManager m_skillMan;
 
     private static ControllerCenter instance = null;
 
@@ -18,40 +19,28 @@ class ControllerCenter
         m_shapeMan.AddShape(shape);
     }
 
-    public PlayerProduct GetCurPlayer()
+    public PlayerProduct GetMainPlayer()
     {
-        return m_playerMan.GetCurPlayer();
-    }
-    public int GetPlayerNumber()
-    {
-        return m_playerMan.GetPlayerNumber();
+        return m_playerMan.GetMainPlayer();
     }
 
-    public void AddPlayer(PlayerProduct player)
+    public void SetMainPlayer(PlayerProduct player)
     {
-        m_playerMan.AddPlayer(player);
+        m_playerMan.SetMainPlayer(player);
     }
 
-    public void AddMainPlayer(int i)
+    public void AddSkill(ISkillProduct skill)
     {
-        m_playerMan.AddMainPlayer(i);
+        m_skillMan.AddSkill(skill);
     }
 
-    public void RemoveMainPlayer(int i)
-    {
-        m_playerMan.RemoveMainPlayer(i);
-    }
-
-    public void SetCameraFollow(int i)
-    {
-        m_playerMan.SetCameraFollowPlayer(i);
-    }
 
     // 单例的使用
     private ControllerCenter()
     {
         m_shapeMan = new ShapeManager();
         m_playerMan = new PlayerManager();
+        m_skillMan = new SkillManager();
     }
 
     public static ControllerCenter Instance
@@ -69,7 +58,8 @@ class ControllerCenter
     public void Update()
     {
         m_shapeMan.Update();
-        m_playerMan.Update(); 
+        m_playerMan.Update();
+        m_skillMan.Update();
     }
 }
 

@@ -16,6 +16,10 @@
  * */
 using System.Collections.Generic;
 
+/*
+ * 维持过程特效，过程信息
+ * 没有过程信息就直接附加buff
+ * */
 public class SkillManager
 {
     List<ISkillProduct> m_skills;
@@ -24,12 +28,12 @@ public class SkillManager
     {
         m_skills = new List<ISkillProduct>();
     }
-    public void AddPlayer(ISkillProduct skill)
+    public void AddSkill(ISkillProduct skill)
     {
         m_skills.Add(skill);
     }
 
-    public void RemoveShape(ISkillProduct skill)
+    public void RemoveSkill(ISkillProduct skill)
     {
         m_skills.Remove(skill);
     }
@@ -41,16 +45,28 @@ public class SkillManager
 
     public void Update()
     {
+        List<ISkillProduct> finishedList = new List<ISkillProduct>();
         foreach (ISkillProduct skill in m_skills)
         {
             // 根据技能类型 搜索地图，获取角色
 
             // 将技能存储的buff 放在角色身上。
+            // 附近角色的搜索
+            // 技能系统只能针对主要角色释放，所以这里的释放者就是playerMan.getMainPlayer, 只能有一个
               
             //  ** 放在角色身上这个过程就是通过工厂模式  调用需要的buff工厂并且把角色传进去
-                skill.Update();
+            bool finish = skill.Update();
             // 移除技能
+            if (finish)
+                finishedList.Add(skill);
         }
+
+        foreach (ISkillProduct skill in finishedList)
+        {
+            m_skills.Remove(skill);
+        }
+        finishedList.Clear();
+        
     }
 }
 

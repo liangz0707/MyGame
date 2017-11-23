@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 
 /* *
@@ -32,14 +30,14 @@ public abstract class IShapeFactory
 public abstract class IPlayerFactory
 { 
     public abstract PlayerProduct CreateElsePlayer();
-    public abstract PlayerProduct CreatePlayer(String modeName);
+    public abstract PlayerProduct CreateMainPlayer(String modeName);
 }
 
 
 // 技能工厂
 public abstract class ISkillProduct
 {
-    public abstract void Update();
+    public abstract bool Update();
 }
 
 public abstract class ISkillFactory
@@ -47,18 +45,30 @@ public abstract class ISkillFactory
     // 因为技能附带的是buff 所以只需要考虑范围，至于技能内容，由技能指向的buff决定。不同的构造只是因为范围需要不同的参数。
     // 技能最终要的内容就是角色的选定，需要判断周围角色的位置。
     // 这里其实可以直接通过ID来读取技能
-    // 这里可能需要实现一个八叉树管理所有的位置信息。用于快速的计算技能范围。
-    public abstract ISkillProduct CreateAOESkill(); // 范围技能：定点范围， 自己为中心的范围
-    public abstract ISkillProduct CreatePersonSkill(); // 单人技能：给自己，给别人，给敌人。
-    public abstract ISkillProduct CreatePointSkill(); // 定点释放技能
-    public abstract ISkillProduct CreateDirectionSkil(); // 指向型技能
-    public abstract ISkillProduct CreateTeamSkil(); // 团队： 这就需要直接给定列表了
+
+    // 这里可能需要实现一个八叉树管理所有的位置信息。用于快速的计算技能范围，不同内容需要有不同的搜索目标的方法。
+    // 先实现最基础的搜索功能吧。
+    public abstract ISkillProduct CreateSkill(ISkillCasterComponent skillCaster, SKILL_ID id);
+    public abstract ISkillProduct CreateSkill(SKILL_ID id);
+    public abstract ISkillProduct CreateAOESkill(SKILL_ID id); // 范围技能：定点范围， 自己为中心的范围
+    public abstract ISkillProduct CreatePersonSkill(SKILL_ID id); // 单人技能：给自己，给别人，给敌人。
+    public abstract ISkillProduct CreatePointSkill(SKILL_ID id); // 定点释放技能
+    public abstract ISkillProduct CreateDirectionSkil(SKILL_ID id); // 指向型技能
+    public abstract ISkillProduct CreateTeamSkil(SKILL_ID id); // 团队： 这就需要直接给定列表了
+
+    // 还需要接一个产生释放物体的特效，透支，发生碰撞后出发。活在某个时候出发。 这个应该是生产物体，这个物体在结束时可以释放技能。
 }
 
 // Buff工厂，由于buff是附加在角色身上的，所以buff不需要加入到控制器当中，而是需要加入到角色当中，buff的处理也是在角色当中处理的。
 // 所以创建buff的时候需要传入角色。
 public abstract class IBuffProduct
 {
+    public abstract bool BeforeAttached(List<IBuffProduct> lBuffs);//buff附加之前  返回是否能附加
+    public abstract bool AfterAttached(List<IBuffProduct> lBuffs);//buff附加时   
+    public abstract bool Update(List<IBuffProduct> lBuffs);//buff在角色身上   返回是否需要删除
+    public abstract bool Update(PlayerProduct player);//buff在角色身上   返回是否需要删除
+    public abstract bool BeforeRemove(List<IBuffProduct> lBuffs);//buff在离开角色身上时  返回是否能删除
+    public abstract bool AfterRemove(List<IBuffProduct> lBuffs);//buff在离开角色身上以后
 }
 
 public abstract class IBuffFactory

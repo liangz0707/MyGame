@@ -7,16 +7,15 @@ using UnityEditor;
 
 public class ServiceLocator 
 {
-    static public void prodive(AudioService service){ service_audio = service; }
-    static public void prodive(IInputControlService service) { service_input = service; }
-
-
-
-    static public AudioService getAudioSetvice() { return service_audio; }
-    static public IInputControlService getInputSetvice() {
+    static public void prodive(IKeyBoardControlService service) { service_input = service; }
+    static public void prodive(IMouseControlService service) { service_mouse = service; }
+    static public void prodive(ISkillControlService service) { service_skill = service; }
+    static public void prodive(IInputEventService service) { service_event = service; }
+    
+    static public IKeyBoardControlService getInputSetvice() {
         if(service_input == null)
         {
-            return new NullInputConrtolService();
+            return new NullKeyBoardControlService();
         }
         else
         {
@@ -24,9 +23,47 @@ public class ServiceLocator
         }
     }
 
+    static public IInputEventService getEventSetvice()
+    {
+        if (service_input == null)
+        {
+            return new NullInputEventService();
+        }
+        else
+        {
+            return service_event;
+        }
+    }
+
+    static public IMouseControlService getMouseSetvice()
+    {
+        if (service_input == null)
+        {
+            return new NullMouseControlService();
+        }
+        else
+        {
+            return service_mouse;
+        }
+    }
+
+    static public ISkillControlService getSkillSetvice()
+    {
+        if (service_input == null)
+        {
+            return new NullSkillControlService();
+        }
+        else
+        {
+            return service_skill;
+        }
+    }
+
+    static IKeyBoardControlService service_input;
+    static IMouseControlService service_mouse; 
+    static IInputEventService service_event;
+    static ISkillControlService service_skill;
 
 
-    static IInputControlService service_input;
-    static AudioService service_audio;
 }
     

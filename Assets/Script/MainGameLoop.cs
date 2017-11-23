@@ -4,85 +4,60 @@ using UnityEngine;
 
 // 做一些杂乱的工作，和游戏主循环。
 public class MainGameLoop : MonoBehaviour {
-   
-    public void Start () {
-        PlayerFactory f = new PlayerFactory();
-        f.CreatePlayer("Cube");
-        ControllerCenter.Instance.AddMainPlayer(0); // 这里内部使用了服务器定位提供的服务，但是没有报错 就是应为这个机制。
-        ControllerCenter.Instance.SetCameraFollow(0); 
 
-        IInputControlService m_ic = new InputControlService();
-        m_ic.AddCommand("w", new MoveForwardCommandImpl());
-        m_ic.AddCommand("s", new MoveBackCommandImpl());
-        m_ic.AddCommand("a", new MoveLeftCommandImpl());
-        m_ic.AddCommand("d", new MoveRightCommandImpl());
-        m_ic.AddCommand("z", new MoveUpCommandImpl());
-        m_ic.AddCommand("x", new MoveDownCommandImpl());
-        m_ic.AddCommand("space", new MoveJumpCommandImpl());
-        ServiceLocator.prodive(m_ic);
+    public void Start () {
   
+        PlayerFactory f = new PlayerFactory();
+        
+        PlayerProduct p = f.CreateMainPlayer("Cube");
+        p.SetCameraCmp(GameObject.Find("Camera").GetComponent<Camera>());
+
+        // 通过工厂创建时技能的释放过程。
+        // 那技能的加载就是将技能命令提取出来。
+
+        IInputEventService m_ec = new InputEventService();
+        m_ec.SetKeyMapping();
+        ServiceLocator.prodive(m_ec);
+
+        // 控制器分开比较好，根据不同类型的命令分别写
+        IKeyBoardControlService m_ic = new KeyBoardControlService();
+        m_ic.AddCommand(IInputEventService.VertualKey.MOVE_FORWARD, new MoveForwardCommandImpl());
+        m_ic.AddCommand(IInputEventService.VertualKey.MOVE_BACK, new MoveBackCommandImpl());
+        m_ic.AddCommand(IInputEventService.VertualKey.MOVE_LEFT, new MoveLeftCommandImpl());
+        m_ic.AddCommand(IInputEventService.VertualKey.MOVE_RIGHT, new MoveRightCommandImpl());
+        m_ic.AddCommand(IInputEventService.VertualKey.MOVE_JUMP, new MoveJumpCommandImpl());
+        ServiceLocator.prodive(m_ic);
+
+        IMouseControlService m_mc = new MouseControlService();
+        m_mc.AddCommand(IInputEventService.VertualKey.MOUSE_RIGHTBUTTON_DOWN, new CameraRightCommandImpl());
+        m_mc.AddCommand(IInputEventService.VertualKey.MOUSE_LEFTBUTTON_DOWN, new CameraLeftCommandImpl());
+        m_mc.AddCommand(IInputEventService.VertualKey.MOUSE_MIDBUTTON_DOWN, new CameraZoomCommandImpl());
+        ServiceLocator.prodive(m_mc);
+ 
+        ISkillControlService m_sc = new SkillControlService();
+        m_sc.AddCommand(IInputEventService.VertualKey.NUM_1, SKILL_ID.SKILL_1);
+        m_sc.AddCommand(IInputEventService.VertualKey.NUM_2, SKILL_ID.SKILL_2);
+        m_sc.AddCommand(IInputEventService.VertualKey.NUM_3, SKILL_ID.SKILL_3);
+        m_sc.AddCommand(IInputEventService.VertualKey.NUM_4, SKILL_ID.SKILL_4);
+        m_sc.AddCommand(IInputEventService.VertualKey.NUM_5, SKILL_ID.SKILL_5);
+        ServiceLocator.prodive(m_sc);
+
     }
 	
 	// Update is called once per frame
 	void Update () {
-        // 处理输入：每一个游戏对象（实体）的状态都保存在一个组件当中，控制器首先通过输入修改组件状态。
-        ServiceLocator.getInputSetvice().TransLateInput();
+        // 读取系统实际按键。并且将实际按键装换到虚拟按键。
+        ServiceLocator.getEventSetvice().ResetInput();
+        ServiceLocator.getEventSetvice().TranslateInput();
 
-        if (Input.GetKeyDown("q"))
-        {
-            ShapeFactory sp = new ShapeFactory();
-            sp.CreateSphere(GameObject.Find("Cube").transform.position);
-        }
+        // 处理每一个虚拟按键的消息
+        ServiceLocator.getInputSetvice().MappingCommand(ControllerCenter.Instance.GetMainPlayer().GetMoveComponent());
+        ServiceLocator.getMouseSetvice().MappingCommand(ControllerCenter.Instance.GetMainPlayer().GetCameraComponent());
+        ServiceLocator.getSkillSetvice().MappingCommand(ControllerCenter.Instance.GetMainPlayer().GetSkillCaster());
 
-        if (Input.GetKeyDown("e"))
-        {
-            PlayerFactory pf = new PlayerFactory();
-            PlayerProduct pd = pf.CreatePlayer("Cube");
-            pd.GetMoveComponent().SetPosition(ControllerCenter.Instance.GetCurPlayer().GetMoveComponent().GetPosition());
-        }
+        // 处理网络消息
 
-        if (Input.GetKeyDown("r"))
-        {
-            PlayerFactory pf = new PlayerFactory();
-            PlayerProduct pd = pf.CreatePlayer("Sphere");
-            
-            pd.GetMoveComponent().SetPosition(ControllerCenter.Instance.GetCurPlayer().GetMoveComponent().GetPosition());
-        }
-
-        if (Input.GetKeyDown("1"))
-        {
-            if(Input.GetKey("left alt"))
-            {
-                ControllerCenter.Instance.RemoveMainPlayer(0);
-            }
-            else
-            {
-                ControllerCenter.Instance.AddMainPlayer(0);
-            }
-        }
-        if (Input.GetKeyDown("2"))
-        {
-            if (Input.GetKey("left alt"))
-            {
-                ControllerCenter.Instance.RemoveMainPlayer(1);
-            }
-            else
-            {
-                ControllerCenter.Instance.AddMainPlayer(1);
-            }
-        }
-        if (Input.GetKeyDown("3"))
-        {
-            if (Input.GetKey("left alt"))
-            {
-                ControllerCenter.Instance.RemoveMainPlayer(2);
-            }
-            else
-            {
-                ControllerCenter.Instance.AddMainPlayer(2);
-            }
-        }
-        
+        // 处理状态需
         // 控制中心会让所有的管理器去更新管理的内容。
         ControllerCenter.Instance.Update();
     }
