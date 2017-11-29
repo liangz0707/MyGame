@@ -101,8 +101,10 @@ public class NullInputEventService: IInputEventService
 
 public class InputEventService: IInputEventService
 {
+    GameObject m_OSelected;
     public InputEventService()
     {
+        m_OSelected = null;
         m_lVertualKeyState = new List<bool>();
         for (int i = 0; i < (int)VertualKey.VERTUAL_KEY_NUMBER; i++) m_lVertualKeyState.Add(false);
         m_lMouseState = new MouseState();
@@ -241,6 +243,19 @@ public class InputEventService: IInputEventService
                 )
             {
                 m_lVertualKeyState[(int)kvp.Value] = true;
+            }
+        }
+
+
+        if (Input.GetMouseButton(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);  //camare2D.ScreenPointToRay (Input.mousePosition);  
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                // 这里实现了拾取，但是和unity关系有点紧密， 这里需要在内容当中加入item的可选择组件：
+                // 组件内容类型包括：NPC，物品，机关等等。
+                m_OSelected = hit.collider.gameObject;
             }
         }
     }
