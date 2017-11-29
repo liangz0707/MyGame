@@ -20,7 +20,8 @@ public class MoveComponent : IMoveComponent
 
     public MoveComponent(Transform transform, float speed)
     {
-        m_terrain = GameObject.Find("Terrain").GetComponent<Terrain>(); ;
+        m_terrain = GameObject.Find("Terrain").GetComponent<Terrain>();
+   
         m_Transform = transform;
         m_fSpeed = speed;
         m_gravity = 1.8f;
@@ -154,11 +155,12 @@ public class MoveComponent : IMoveComponent
 
     public bool OnTheGround(Vector3 objPos)
     {
+
         float y = objPos.y;
+     
+        float groundY =  m_terrain.SampleHeight(objPos);
 
-        float hitY = m_terrain.SampleHeight(objPos);
-
-        if (hitY + m_heightToFeet + 0.1 >= y)  // 由于数据的精度和移动的状态  如果不加0.1 可能会造成判断错误
+        if (groundY + m_heightToFeet + 0.1 >= y)  // 由于数据的精度和移动的状态  如果不加0.1 可能会造成判断错误
         {
             return true;
         }
