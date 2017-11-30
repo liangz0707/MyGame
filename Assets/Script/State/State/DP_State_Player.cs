@@ -93,7 +93,7 @@ public class PlayerStateAttackBefore : IPlayerState
     {
         return (int)PlAYER_STATE.ATTACK_BEFORE;
     }
-}
+    }
 
 // 攻击后摇
 public class PlayerStateAttackAfter : IPlayerState
