@@ -35,7 +35,7 @@ public class KeyBoardControlService : IKeyBoardControlService
         {
             if (ServiceLocator.getEventSetvice().IsActive(kvp.Key))
             {
-                MouseState ms = ServiceLocator.getEventSetvice().MousePos(kvp.Key);
+                MouseState ms = ServiceLocator.getEventSetvice().MousePos();
                 kvp.Value.Execute(postComponent, ms.offsetX, ms.offsetY, ms.zoomOffset, ms.X, ms.Y);
             }
         }

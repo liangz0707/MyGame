@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public struct MouseState
@@ -8,6 +9,9 @@ public struct MouseState
     public float zoomOffset;
     public float X;
     public float Y;
+    public float terrainPos;
+    public GameObject selectedItem;
+
     public void Set(float ox,float oy, float oz, float x,float y)
     {
         offsetX = ox;
@@ -15,6 +19,11 @@ public struct MouseState
         zoomOffset = oz;
         X = x;
         Y = y;
+    }
+
+    public void SetSeletedItem(GameObject m_OSelected)
+    {
+        selectedItem = m_OSelected;
     }
 }
 
@@ -64,7 +73,7 @@ public abstract class IInputEventService
     public abstract void SetKeyMapping();
     public abstract void TranslateInput();
     public abstract void ResetInput();
-    public abstract MouseState MousePos(VertualKey vk);
+    public abstract MouseState MousePos();
 }
 
 public class NullInputEventService: IInputEventService
@@ -91,7 +100,7 @@ public class NullInputEventService: IInputEventService
     {
     }
 
-    public override MouseState MousePos(VertualKey vk)
+    public override MouseState MousePos()
     {
         return new MouseState();
     }
@@ -125,10 +134,11 @@ public class InputEventService: IInputEventService
             return m_lVertualKeyState[keyIndex];
     }
 
-    public override MouseState MousePos(VertualKey vk)
+    public override MouseState MousePos()
     {
         return m_lMouseState;
     }
+
 
     public override void ResetInput()
     {
@@ -249,13 +259,21 @@ public class InputEventService: IInputEventService
 
         if (Input.GetMouseButton(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);  //camare2D.ScreenPointToRay (Input.mousePosition);  
+            Ray ray = GameObject.Find("Camera").GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);  //camare2D.ScreenPointToRay (Input.mousePosition);  
             RaycastHit hit;
+
+            // 如果是可以拾取的物体
             if (Physics.Raycast(ray, out hit))
             {
                 // 这里实现了拾取，但是和unity关系有点紧密， 这里需要在内容当中加入item的可选择组件：
                 // 组件内容类型包括：NPC，物品，机关等等。
                 m_OSelected = hit.collider.gameObject;
+                m_lMouseState.SetSeletedItem(m_OSelected);
+            }
+            // 如果是地面
+            else
+            {
+                m_OSelected = null;
             }
         }
     }

@@ -59,5 +59,16 @@ public class MainGameLoop : MonoBehaviour {
         // 处理状态需
         // 控制中心会让所有的管理器去更新管理的内容。
         ControllerCenter.Instance.Update();
+
+
+        // 特殊测试的位置
+        // TODO:=====================================================================
+
+        GameObject obj = ServiceLocator.getEventSetvice().MousePos().selectedItem;
+        if (obj != null && obj.name=="Sphere")
+        {
+            GameObject.Destroy(obj);
+        }
+        // ==========================================================================
     }
 }
