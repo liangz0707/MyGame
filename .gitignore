@@ -14,5 +14,12 @@ Temp/*
 
 /Assets/JMO Assets
 /Assets/SkillPartical
+/Assets/*meta
 *.meta
 /Assets/Resources/SkillPartical
+*.sln
+*.csproj
+*.txt
+*.prefab
+
+Assets/For_sale/
