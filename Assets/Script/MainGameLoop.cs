@@ -8,7 +8,6 @@ public class MainGameLoop : MonoBehaviour {
     public void Start () {
   
         PlayerFactory f = new PlayerFactory();
-        
         PlayerProduct p = f.CreateMainPlayer("Cube");
         p.SetCameraCmp(GameObject.Find("Camera").GetComponent<Camera>());
 
