@@ -7,12 +7,14 @@ using UnityEditor;
 
 public class ServiceLocator 
 {
-    static public void prodive(IKeyBoardControlService service) { service_input = service; }
+    static public void prodive(IMoveControlService service) { service_input = service; }
     static public void prodive(IMouseControlService service) { service_mouse = service; }
-    static public void prodive(ISkillControlService service) { service_skill = service; }
+    static public void prodive(IActionControlService service) { service_Action = service; }
     static public void prodive(IInputEventService service) { service_event = service; }
-    
-    static public IKeyBoardControlService getInputSetvice() {
+    static public void prodive(ICameraService service) { service_camera = service; }
+    static public void prodive(IMapService service) { service_map = service; }
+
+    static public IMoveControlService getInputSetvice() {
         if(service_input == null)
         {
             return new NullKeyBoardControlService();
@@ -23,9 +25,9 @@ public class ServiceLocator
         }
     }
 
-    static public IInputEventService getEventSetvice()
+    static public IInputEventService getInputEventSetvice()
     {
-        if (service_input == null)
+        if (service_event == null)
         {
             return new NullInputEventService();
         }
@@ -37,7 +39,7 @@ public class ServiceLocator
 
     static public IMouseControlService getMouseSetvice()
     {
-        if (service_input == null)
+        if (service_mouse == null)
         {
             return new NullMouseControlService();
         }
@@ -47,23 +49,49 @@ public class ServiceLocator
         }
     }
 
-    static public ISkillControlService getSkillSetvice()
+    static public IActionControlService getActionService()
     {
-        if (service_input == null)
+        if (service_Action == null)
         {
-            return new NullSkillControlService();
+            return new NullActionControlService();
         }
         else
         {
-            return service_skill;
+            return service_Action;
         }
     }
 
-    static IKeyBoardControlService service_input;
+
+    static public ICameraService getCameraService()
+    {
+        if (service_camera == null)
+        {
+            return new NullCameraService();
+        }
+        else
+        {
+            return service_camera;
+        }
+    }
+
+    static public IMapService getMapService()
+    {
+        if (service_map == null)
+        {
+            return new NullMapService();
+        }
+        else
+        {
+            return service_map;
+        }
+    }
+
+    static IMoveControlService service_input;
     static IMouseControlService service_mouse; 
     static IInputEventService service_event;
-    static ISkillControlService service_skill;
-
+    static IActionControlService service_Action;
+    static ICameraService service_camera;
+    static IMapService service_map;
 
 }
     

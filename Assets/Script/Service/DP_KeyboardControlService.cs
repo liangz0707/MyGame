@@ -1,24 +1,24 @@
 ﻿using System.Collections.Generic;
 
-public abstract class IKeyBoardControlService
+public abstract class IMoveControlService
 {
     public abstract void AddCommand(IInputEventService.VertualKey vk, AbstractMoveCommand cmd);
     
     public abstract void MappingCommand(IMoveComponent postComponent);
 }
 
-public  class NullKeyBoardControlService : IKeyBoardControlService
+public  class NullKeyBoardControlService : IMoveControlService
 {
     public override void AddCommand(IInputEventService.VertualKey vk, AbstractMoveCommand cmd) { }
 
     public override void MappingCommand(IMoveComponent postComponent) { }
 }
 
-public class KeyBoardControlService : IKeyBoardControlService
+public class MoveControlService : IMoveControlService
 {
     Dictionary<IInputEventService.VertualKey, AbstractMoveCommand> m_Dictionary;
 
-    public KeyBoardControlService()
+    public MoveControlService()
     {
         m_Dictionary = new Dictionary<IInputEventService.VertualKey, AbstractMoveCommand>();
     }
@@ -33,9 +33,9 @@ public class KeyBoardControlService : IKeyBoardControlService
         Dictionary<IInputEventService.VertualKey, AbstractMoveCommand>.KeyCollection keyCol = m_Dictionary.Keys;
         foreach (KeyValuePair<IInputEventService.VertualKey, AbstractMoveCommand> kvp in m_Dictionary)
         {
-            if (ServiceLocator.getEventSetvice().IsActive(kvp.Key))
+            if (ServiceLocator.getInputEventSetvice().IsActive(kvp.Key))
             {
-                MouseState ms = ServiceLocator.getEventSetvice().MousePos();
+                MouseState ms = ServiceLocator.getInputEventSetvice().GetMouseState();
                 kvp.Value.Execute(postComponent, ms.offsetX, ms.offsetY, ms.zoomOffset, ms.X, ms.Y);
             }
         }

@@ -1,47 +1,48 @@
 ﻿using System.Collections.Generic;
 
-public abstract class ISkillControlService
+public abstract class IActionControlService
 {
-    public abstract void MappingCommand(ISkillCasterComponent skillCaster);
-    public abstract void AddCommand(IInputEventService.VertualKey vk, SKILL_ID skill);
+    public abstract void MappingCommand();
+    public abstract void AddCommand(IInputEventService.VertualKey vk, ACTION_ID Action);
 }  
 
-public class NullSkillControlService : ISkillControlService
+public class NullActionControlService : IActionControlService
 {
-    public override void MappingCommand(ISkillCasterComponent skillCaster)
+    public override void MappingCommand()
     {
 
     }
-    public override void AddCommand(IInputEventService.VertualKey vk, SKILL_ID skill)
+    public override void AddCommand(IInputEventService.VertualKey vk, ACTION_ID Action)
     {
 
     }
 }
 
-public class SkillControlService : ISkillControlService
+public class ActionControlService : IActionControlService
 {
-    Dictionary<IInputEventService.VertualKey, SKILL_ID> m_Dictionary;
+    Dictionary<IInputEventService.VertualKey, ACTION_ID> m_Dictionary;
  
-    public SkillControlService()
+    public ActionControlService()
     {
-        m_Dictionary = new Dictionary<IInputEventService.VertualKey, SKILL_ID>();
+        m_Dictionary = new Dictionary<IInputEventService.VertualKey, ACTION_ID>();
     }
 
-    public override void MappingCommand(ISkillCasterComponent skillCaster)
+    public override void MappingCommand()
     {
-        Dictionary<IInputEventService.VertualKey, SKILL_ID>.KeyCollection keyCol = m_Dictionary.Keys;
-        foreach (KeyValuePair<IInputEventService.VertualKey, SKILL_ID> kvp in m_Dictionary)
+        Dictionary<IInputEventService.VertualKey, ACTION_ID>.KeyCollection keyCol = m_Dictionary.Keys;
+        foreach (KeyValuePair<IInputEventService.VertualKey, ACTION_ID> kvp in m_Dictionary)
         {
-            if (ServiceLocator.getEventSetvice().IsActive(kvp.Key))
+            if (ServiceLocator.getInputEventSetvice().IsActive(kvp.Key))
             {
-                skillCaster.CreateSkill(kvp.Value);
+                ActionFactory sf = new ActionFactory();
+                sf.CreateAction(kvp.Value);
             }
         }
     }
 
-    public override void AddCommand(IInputEventService.VertualKey vk, SKILL_ID skill)
+    public override void AddCommand(IInputEventService.VertualKey vk, ACTION_ID Action)
     {
-        m_Dictionary.Add(vk, skill);
+        m_Dictionary.Add(vk, Action);
     }
 
 

@@ -5,208 +5,420 @@ using System.Text;
 using UnityEngine;
 using UnityEditor;
 
-public enum SKILL_ID
+public enum ACTION_ID
 {
-    SKILL_NULL,
-    SKILL_1,
-    SKILL_2,
-    SKILL_3,
-    SKILL_4,
-    SKILL_5,
-    SKILL_6,
-    SKILL_NUM,
+    ACTION_NULL,
+    ACTION_1,
+    ACTION_2,
+    ACTION_3,
+    ACTION_4,
+    ACTION_5,
+    ACTION_6,
+    ACTION_Uppercut,
+    ACTION_Punch,
+    ACTION_Jab,
+    ACTION_Kick,
+    ACTION_SpecialAttack1,
+    ACTION_SpecialAttack2,
+    ACTION_MoveAttack1,
+    ACTION_MoveAttack2,
+    ACTION_RangeAttack1,
+    ACTION_RangeAttack2,
+    ACTION_DasheForward,
+    ACTION_DasheBackward,
+    ACTION_NUM,
 }
 
-public class NullSkillProduct : ISkillProduct
+public class NullAction : IAction
 {
-    static SKILL_ID SkillID = SKILL_ID.SKILL_NULL;
-    public NullSkillProduct()
+    public NullAction()
     {
+        ActionID = ACTION_ID.ACTION_NULL;
+    }
+}
+
+public class Action1 : IAction
+{
+    public Action1()
+    {
+        ActionID = ACTION_ID.ACTION_1;
+    }
+}
+
+public class Action2 : IAction
+{
+    public Action2()
+    {
+        ActionID = ACTION_ID.ACTION_2;
+    }
+}
+
+public class Action3 : IAction
+{
+    public Action3()
+    {
+        ActionID = ACTION_ID.ACTION_3;
+    }
+
+}
+
+public class Action4 : IAction
+{
+    public Action4()
+    {
+        ActionID = ACTION_ID.ACTION_4;
+    }
+
+}
+
+public class Action5 : IAction
+{
+    public Action5()
+    {
+        ActionID = ACTION_ID.ACTION_5;
+    }
+
+}
+
+public class Action6 : IAction
+{
+    public Action6()
+    {
+        ActionID = ACTION_ID.ACTION_6;
+    }
+}
+
+public class ActionDashBackward : IAction
+{
+
+
+    public ActionDashBackward()
+    {
+        ActionID = ACTION_ID.ACTION_DasheBackward;
+
+        MoveData moveData = ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData;
+        if (moveData.isAction) return;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction = true;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.movable = false;
+        time = 0.3f;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.animationName = "DashBackward";
+
+        ItemFactory.CreateSkillItem(4, 0, moveData.position);
     }
 
     public override bool Update()
     {
-        return true;
-    }
-}
-
-public class SkillProduct1 : ISkillProduct
-{
-    static SKILL_ID SkillID = SKILL_ID.SKILL_1;
-    ISkillCasterComponent m_caster;
-    GameObject m_ps;
-    public SkillProduct1(ISkillCasterComponent caster)
-    {
-        m_caster = caster;
-        caster.GetPosition();
-        m_ps = UnityEngine.Object.Instantiate((GameObject)Resources.Load("SkillPartical/Skill1"));
-        m_ps.transform.position = caster.GetPosition();
-        m_ps.GetComponent<ParticleSystem>().Play();
-        m_ps.GetComponent<ParticleSystem>().loop = false;
-    }
-
-    public override bool Update()
-    {
-        if(!m_ps.GetComponent<ParticleSystem>().isPlaying)
+        time -= Time.deltaTime;
+        if (time < 0f)
         {
-            UnityEngine.Object.DestroyObject(m_ps);
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction = false;
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.movable = true;
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.animationName = "";
             return true;
         }
-        else
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.position += -ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.forward.normalized * 15f * Time.deltaTime;
+        return false;
+    }
+}
+public class ActionDashForward : IAction
+{
+
+    public ActionDashForward()
+    {
+        ActionID = ACTION_ID.ACTION_DasheForward;
+        if (ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction) return;
+       
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction = true;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.movable = false;
+        time = 0.3f;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.animationName = "DashForward";
+    }
+
+    public override bool Update()
+    {
+        time -= Time.deltaTime;
+        if (time < 0f)
         {
-            m_ps.transform.position = m_caster.GetPosition();
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction = false;
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.movable = true;
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.animationName = "";
+            return true;
+        }
+
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.position += ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.forward.normalized * 15f * Time.deltaTime;
+        return false;
+    }
+}
+public class ActionMoveAttack1 : IAction
+{
+
+    public ActionMoveAttack1()
+    {
+        ActionID = ACTION_ID.ACTION_MoveAttack1;
+        if (ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction) return;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction = true;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.movable = false;
+        time = 1.0f;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.animationName = "MoveAttack1";
+    }
+
+    public override bool Update()
+    {
+        time -= Time.deltaTime;
+        if (time < 0f)
+        {
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction = false;
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.movable = true;
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.animationName = "";
+            return true;
+        }
+        return false;
+    }
+}
+public class ActionMoveAttack2 : IAction
+{
+    public ActionMoveAttack2()
+    {
+        ActionID = ACTION_ID.ACTION_MoveAttack2;
+        if (ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction) return;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction = true;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.movable = false;
+        time = 1.0f;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.animationName = "MoveAttack2";
+    }
+
+    public override bool Update()
+    {
+        time -= Time.deltaTime;
+        if (time < 0f)
+        {
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction = false;
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.movable = true;
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.animationName = "";
+            return true;
+        }
+        return false;
+    }
+}
+public class ActionSpecialAttack1 : IAction
+{
+    public ActionSpecialAttack1()
+    {
+        ActionID = ACTION_ID.ACTION_SpecialAttack1;
+        if (ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction) return;
+
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction = true;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.movable = false;
+        time = 1.0f;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.animationName = "SpecialAttack1";
+    }
+
+    public override bool Update()
+    {
+        time -= Time.deltaTime;
+        if (time < 0f)
+        {
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction = false;
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.movable = true;
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.animationName = "";
+            return true;
+        }
+        return false;
+    }
+}
+public class ActionSpecialAttack2 : IAction
+{
+
+    public ActionSpecialAttack2()
+    {
+        ActionID = ACTION_ID.ACTION_SpecialAttack2;
+        if (ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction) return;
+
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction = true;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.movable = false;
+        time = 1.0f;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.animationName = "SpecialAttack2";
+    }
+
+    public override bool Update()
+    {
+        time -= Time.deltaTime;
+        if (time < 0f)
+        {
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction = false;
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.movable = true;
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.animationName = "";
+            return true;
+        }
+        return false;
+    }
+}
+public class ActionRangeAttack1 : IAction
+{
+
+
+    public ActionRangeAttack1()
+    {
+        ActionID = ACTION_ID.ACTION_RangeAttack1;
+        if (ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction) return;
+        time = 1f;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction = true;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.movable = false;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.animationName = "RangeAttack1";
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.jumpSeed = 3;
+    }
+
+    public override bool Update()
+    {
+        time -= Time.deltaTime;
+        if (time < 0f)
+        {
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction = false;
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.movable = true;
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.animationName = "";
+            return true;
+        }
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.position += ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.forward.normalized * 5f * Time.deltaTime;
+        
+
+        return false;
+    }
+}
+
+public class ActionRangeAttack2 : IAction
+{
+
+    public ActionRangeAttack2()
+    {
+        ActionID = ACTION_ID.ACTION_RangeAttack2;
+        if (ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction) return;
+
+        time = 1f;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction = true;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.movable = false;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.animationName = "RangeAttack2";
+    }
+
+    public override bool Update()
+    {
+
+        time -= Time.deltaTime;
+        if (time < 0f)
+        {
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction = false;
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.movable = true;
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.animationName = "";
+            return true;
         }
         return false;
     }
 }
 
-public class SkillProduct2 : ISkillProduct
+public class ActionUppercut : IAction
 {
-    static SKILL_ID SkillID = SKILL_ID.SKILL_2;
-    ISkillCasterComponent m_caster;
-    GameObject m_ps;
-    public SkillProduct2(ISkillCasterComponent caster)
+    public ActionUppercut()
     {
-        m_caster = caster;
-        caster.GetPosition();
-        m_ps = UnityEngine.Object.Instantiate((GameObject)Resources.Load("SkillPartical/Skill2_FlameThrower"));
-        m_ps.transform.position = caster.GetPosition();
-        m_ps.GetComponent<ParticleSystem>().Play();
-        m_ps.GetComponent<ParticleSystem>().loop = false;
+        ActionID = ACTION_ID.ACTION_Uppercut;
+        if (ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction) return;
+
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction = true;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.movable = false;
+        time = 1.0f;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.animationName = "Uppercut";
     }
 
     public override bool Update()
     {
-        if (!m_ps.GetComponent<ParticleSystem>().isPlaying)
+        time -= Time.deltaTime;
+        if (time < 0f)
         {
-            UnityEngine.Object.DestroyObject(m_ps);
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction = false;
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.movable = true;
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.animationName = "";
             return true;
-        }
-        else
-        {
-            m_ps.transform.position = m_caster.GetPosition();
         }
         return false;
     }
 }
 
-public class SkillProduct3 : ISkillProduct
+public class ActionPunch : IAction
 {
-    static SKILL_ID SkillID = SKILL_ID.SKILL_3;
-    ISkillCasterComponent m_caster;
-    GameObject m_ps;
-    public SkillProduct3(ISkillCasterComponent caster)
+
+    public ActionPunch()
     {
-        m_caster = caster;
-        caster.GetPosition();
-        m_ps = UnityEngine.Object.Instantiate((GameObject)Resources.Load("SkillPartical/Skill3_GazFire"));
-        m_ps.transform.position = caster.GetPosition();
-        m_ps.GetComponent<ParticleSystem>().Play();
-        m_ps.GetComponent<ParticleSystem>().loop = false;
+        ActionID = ACTION_ID.ACTION_Punch;
+        if (ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction) return;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction = true;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.movable = false;
+        time = 1.0f;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.animationName = "Punch";
     }
 
     public override bool Update()
     {
-        if (!m_ps.GetComponent<ParticleSystem>().isPlaying)
+        time -= Time.deltaTime;
+        if (time < 0f)
         {
-            UnityEngine.Object.DestroyObject(m_ps);
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction = false;
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.movable = true;
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.animationName = "";
             return true;
-        }
-        else
-        {
-            m_ps.transform.position = m_caster.GetPosition();
         }
         return false;
     }
 }
 
-public class SkillProduct4 : ISkillProduct
+public class ActionJab : IAction
 {
-    static SKILL_ID SkillID = SKILL_ID.SKILL_4;
-    ISkillCasterComponent m_caster;
-    GameObject m_ps;
-    public SkillProduct4(ISkillCasterComponent caster)
+   
+    public ActionJab()
     {
-        m_caster = caster;
-        caster.GetPosition();
-        m_ps = UnityEngine.Object.Instantiate((GameObject)Resources.Load("SkillPartical/Skill4_GazFireBig"));
-        m_ps.transform.position = caster.GetPosition();
-        m_ps.GetComponent<ParticleSystem>().Play();
-        m_ps.GetComponent<ParticleSystem>().loop = false;
+        ActionID = ACTION_ID.ACTION_Jab;
+        if (ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction) return;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction = true;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.movable = false;
+        time = 1.0f;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.animationName = "Jab";
     }
 
     public override bool Update()
     {
-        if (!m_ps.GetComponent<ParticleSystem>().isPlaying)
+        time -= Time.deltaTime;
+        if (time < 0f)
         {
-            UnityEngine.Object.DestroyObject(m_ps);
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction = false;
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.movable = true;
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.animationName = "";
             return true;
-        }
-        else
-        {
-            m_ps.transform.position = m_caster.GetPosition();
         }
         return false;
     }
 }
 
-public class SkillProduct5 : ISkillProduct
+public class ActionKick : IAction
 {
-    static SKILL_ID SkillID = SKILL_ID.SKILL_5;
-    ISkillCasterComponent m_caster;
-    GameObject m_ps;
-    public SkillProduct5(ISkillCasterComponent caster)
+
+    public ActionKick()
     {
-        m_caster = caster;
-        caster.GetPosition();
-        m_ps = UnityEngine.Object.Instantiate((GameObject)Resources.Load("SkillPartical/Skill5_Nuke"));
-        m_ps.transform.position = caster.GetPosition();
-        m_ps.GetComponent<ParticleSystem>().Play();
-        m_ps.GetComponent<ParticleSystem>().loop = false;
+        ActionID = ACTION_ID.ACTION_Kick;
+        if (ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction) return;
+        
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction = true;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.movable = false;
+        time = 1.0f;
+        ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.animationName = "Kick";
     }
 
     public override bool Update()
     {
-        if (!m_ps.GetComponent<ParticleSystem>().isPlaying)
+        time -= Time.deltaTime;
+        if (time < 0f)
         {
-            UnityEngine.Object.DestroyObject(m_ps);
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.isAction = false;
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.movable = true;
+            ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData.animationName = "";
             return true;
-        }
-        else
-        {
-            m_ps.transform.position = m_caster.GetPosition();
         }
         return false;
     }
 }
-
-public class SkillProduct6 : ISkillProduct
-{
-    static SKILL_ID SkillID = SKILL_ID.SKILL_6;
-    ISkillCasterComponent m_caster;
-    GameObject m_ps;
-    public SkillProduct6(ISkillCasterComponent caster)
-    {
-        m_caster = caster;
-        caster.GetPosition();
-        m_ps = UnityEngine.Object.Instantiate((GameObject)Resources.Load("SkillPartical/Skill6_SmokeGrenade"));
-        m_ps.transform.position = caster.GetPosition();
-        m_ps.GetComponent<ParticleSystem>().Play();
-        m_ps.GetComponent<ParticleSystem>().loop = false;
-    }
-
-    public override bool Update()
-    {
-        if (!m_ps.GetComponent<ParticleSystem>().isPlaying)
-        {
-            UnityEngine.Object.DestroyObject(m_ps);
-            return true;
-        }
-        else
-        {
-            m_ps.transform.position = m_caster.GetPosition();
-        }
-        return false;
-    }
-}
-

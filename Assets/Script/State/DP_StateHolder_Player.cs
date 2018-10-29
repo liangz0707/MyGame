@@ -25,3 +25,8 @@ public abstract class IPlayerStateHolder
         s_state.Update();
     }
 }
+
+public  class PlayerStateHolder :IPlayerStateHolder
+{
+
+}

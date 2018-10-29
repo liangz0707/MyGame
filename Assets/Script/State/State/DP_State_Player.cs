@@ -11,8 +11,8 @@ public enum PlAYER_STATE
     ATTACKED,
     ATTACK_BEFORE,
     ATTACK_AFTER,
-    SKILL_BEFORE,
-    SKILL_AFTER,
+    ACTION_BEFORE,
+    ACTION_AFTER,
     ON_VEHICLE,
     ON_RIDING,
 
@@ -106,21 +106,21 @@ public class PlayerStateAttackAfter : IPlayerState
 }
 
 // 技能前摇
-public class PlayerStateCastSkillBefore : IPlayerState
+public class PlayerStateCastActionBefore : IPlayerState
 {
     public override int GetPlayerState()
     {
-        return (int)PlAYER_STATE.SKILL_BEFORE;
+        return (int)PlAYER_STATE.ACTION_BEFORE;
     }
         
 }
 
 // 技能后摇
-public class PlayerStateCastSkillAfter : IPlayerState
+public class PlayerStateCastActionAfter : IPlayerState
 {
     public override int GetPlayerState()
     {
-        return (int)PlAYER_STATE.SKILL_AFTER;
+        return (int)PlAYER_STATE.ACTION_AFTER;
     }
 }
 
