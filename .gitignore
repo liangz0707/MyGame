@@ -11,13 +11,17 @@ Library/*
 .vs/*
 Temp
 Temp/*
-
-/Assets/JMO Assets
-/Assets/SkillPartical
-/Assets/*meta
+Logs/
+obj/
+Assets/JMO Assets
+Assets/SkillPartical
+Assets/*meta
+Assets/Art/*
+Assets/ArtTool/*
 *.meta
-/Assets/Resources/SkillPartical
+Assets/Resources/SkillPartical
 *.sln
+ProjectSettings/
 *.csproj
 *.txt
 *.prefab

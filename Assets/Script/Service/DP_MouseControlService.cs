@@ -4,14 +4,14 @@ public abstract class IMouseControlService
 {
     public abstract void AddCommand(IInputEventService.VertualKey vk, AbstractCameraCommand cmd);
 
-    public abstract void MappingCommand(ICameraComponent postComponent);
+    public abstract void MappingCommand();
 }
 
 public  class NullMouseControlService : IMouseControlService
 {
     public override void AddCommand(IInputEventService.VertualKey vk, AbstractCameraCommand cmd) { }
 
-    public override void MappingCommand(ICameraComponent postComponent) { }
+    public override void MappingCommand() { }
 }
 
 public class MouseControlService : IMouseControlService
@@ -28,15 +28,15 @@ public class MouseControlService : IMouseControlService
         m_Dictionary.Add(vk, cmd);
     }
 
-    public override void MappingCommand(ICameraComponent postComponent)
+    public override void MappingCommand()
     {
         Dictionary<IInputEventService.VertualKey, AbstractCameraCommand>.KeyCollection keyCol = m_Dictionary.Keys;
         foreach (KeyValuePair<IInputEventService.VertualKey, AbstractCameraCommand> kvp in m_Dictionary)
         {
-            if (ServiceLocator.getEventSetvice().IsActive(kvp.Key))
+            if (ServiceLocator.getInputEventSetvice().IsActive(kvp.Key))
             {
-                MouseState ms = ServiceLocator.getEventSetvice().MousePos();
-                kvp.Value.Execute(postComponent, ms.offsetX, ms.offsetY, ms.zoomOffset, ms.X, ms.Y);
+                MouseState ms = ServiceLocator.getInputEventSetvice().GetMouseState();
+                kvp.Value.Execute(ms.offsetX, ms.offsetY, ms.zoomOffset, ms.X, ms.Y);
             }
         }
     }

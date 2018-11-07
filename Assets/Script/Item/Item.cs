@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-// 享元模式的可变结构体
-public struct sTrade
+public enum ITEM_TYPE
 {
-
+    HANGER_ITEM,
+    RECOVERY_ITEM,
+    TYPE_NUM
 }
-// 享元模式不可变结构体
-
-
 // 所有物品的父类
-public abstract class Item
+public abstract class IItem
 {
-    public sTrade m_sTrade;// 是否可以交易
+    public MoveData moveData;
+    public ModelData modelData;
+
+    public virtual void Update()
+    {
+
+    }
 }

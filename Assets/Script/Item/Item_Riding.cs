@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 
-public class RidingItem :Item
+public class RidingItem :IItem
 {
     
 }

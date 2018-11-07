@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using System;
 
 // 移动组件
 /* *
@@ -7,160 +8,126 @@ using UnityEditor;
  * */
 public class MoveComponent : IMoveComponent
 {
-    private Transform m_Transform;
-    private Vector3 m_position;
-    private float m_fSpeed;
-    private float m_maxSpeed;
-    private float m_jumpSeed;
-    private float m_gravity;
-    private Terrain m_terrain;
-    private float m_heightToFeet;
-    private bool m_bMovable;
-    private Camera m_camera;
 
-    public MoveComponent(Transform transform, float speed)
+    bool isRun;
+
+    public MoveComponent()
     {
-        m_terrain = GameObject.Find("Terrain").GetComponent<Terrain>();
-   
-        m_Transform = transform;
-        m_fSpeed = speed;
-        m_gravity = 1.8f;
-        m_maxSpeed = 50;
-        m_position = transform.position;
-        m_jumpSeed = 0;
-        m_heightToFeet = 0.5f;
-        m_camera = null;
-        m_bMovable = true;
+        isRun = false;
     }
 
-    public void SetCanMove(bool canMove)
+    public void MoveForward(ref MoveData moveData)
     {
-        m_bMovable = canMove;
+        if (!moveData.movable) return;
+
+        moveData.position += ServiceLocator.getCameraService().GetForward() * Time.deltaTime * moveData.speed;
+        moveData.forward += ServiceLocator.getCameraService().GetForward();
+        isRun = true;
     }
 
-    public void SetCamera(Camera camera)
+    public void MoveBack(ref MoveData moveData)
     {
-        m_camera = camera;
+        if (!moveData.movable) return;
+
+        moveData.forward += -ServiceLocator.getCameraService().GetForward();
+        moveData.position += -ServiceLocator.getCameraService().GetForward() * Time.deltaTime * moveData.speed;
+        isRun = true;
     }
 
-    public void MoveForward()
+    public void MoveLeft(ref MoveData moveData)
     {
-        if (!m_bMovable) return;
+        if (!moveData.movable) return;
 
-        if (m_camera != null)
-            m_position += m_camera.transform.forward * Time.deltaTime * m_fSpeed;
-        else
-            m_position += m_Transform.forward * Time.deltaTime * m_fSpeed;
+        moveData.forward += -ServiceLocator.getCameraService().GetRight();
+        moveData.position += -ServiceLocator.getCameraService().GetRight() * Time.deltaTime * moveData.speed;
+        isRun = true;
     }
 
-    public void MoveBack()
+    public void MoveRight(ref MoveData moveData)
     {
-        if (!m_bMovable) return;
-        if (m_camera != null)
-            m_position += - m_camera.transform.forward * Time.deltaTime * m_fSpeed;
-        else
-            m_position += - m_Transform.forward * Time.deltaTime * m_fSpeed;
+        if (!moveData.movable) return;
+
+        moveData.forward += ServiceLocator.getCameraService().GetRight();
+        moveData.position += ServiceLocator.getCameraService().GetRight()  * Time.deltaTime * moveData.speed;
+        isRun = true;
     }
 
-    public void MoveLeft()
+    public void MoveUp(ref MoveData moveData)
     {
-        if (!m_bMovable) return;
-        if (m_camera != null)
-            m_position += - m_camera.transform.right * Time.deltaTime * m_fSpeed;
-        else
-            m_position += - m_Transform.right * Time.deltaTime * m_fSpeed;
+        if (!moveData.movable) return;
+
     }
 
-    public void MoveRight()
+    public void MoveDown(ref MoveData moveData)
     {
-        if (!m_bMovable) return;
-        if (m_camera != null)
-            m_position += m_camera.transform.right * Time.deltaTime * m_fSpeed;
-        else
-            m_position += m_Transform.right * Time.deltaTime * m_fSpeed;
+        if (!moveData.movable) return;
+
     }
 
-    public void MoveUp()
+    public void SetPosition(ref MoveData moveData,Vector3 pos)
     {
-        if (!m_bMovable) return;
-        if (m_camera != null)
-            m_position += m_camera.transform.up * Time.deltaTime * m_fSpeed;
-        else
-            m_position += m_Transform.up * Time.deltaTime * m_fSpeed;
+        if (!moveData.movable) return;
+        moveData.position = pos;
     }
 
-    public void MoveDown()
+    public void Jump(ref MoveData moveData)
     {
-        if (!m_bMovable) return;
-        if (m_camera != null)
-            m_position += - m_camera.transform.up * Time.deltaTime * m_fSpeed;
-        else
-            m_position += - m_Transform.up * Time.deltaTime * m_fSpeed;
-    }
-
-    public void SetPosition(Vector3 pos)
-    {
-        if (!m_bMovable) return;
-        m_position = pos;
-    }
-
-    public void Jump()
-    {
-        if (!m_bMovable) return;
-        if (OnTheGround(m_position))
+        if (!moveData.movable) return;
+        if (OnTheGround(ref moveData,moveData.position))
         {
-            m_jumpSeed = m_maxSpeed;
+            moveData.jumpSeed = moveData.maxSpeed;
+            moveData.isJumpUp = true;
+            moveData.movable = false;
+            moveData.jumpTime = 1.0f;
         }
     }
 
-    public Vector3 GetPosition()
+    public void Update(ref MoveData moveData)
     {
-        return m_Transform.position;
-    }
-
-    public void Update()
-    {
-        if (!OnTheGround(m_position) || m_jumpSeed > 0)
+        if (!OnTheGround(ref moveData,moveData.position) || moveData.jumpSeed > 0)
         {
-            m_jumpSeed -= m_gravity;
+            moveData.jumpSeed -= moveData.gravity;
         }
         else
         {
-            m_position.y = GetGroundY(m_position) + m_heightToFeet;
-            m_jumpSeed = 0;
+            moveData.position.y = GetGroundY(moveData.position) + moveData.heightToFeet;
+            moveData.jumpSeed = 0;
         }
 
         // 判断会不会进入地下
-        if (GetGroundY(m_position) + m_heightToFeet < m_position.y + (Vector3.up * m_jumpSeed * Time.deltaTime).y)
+        if (GetGroundY(moveData.position) + moveData.heightToFeet < moveData.position.y + (Vector3.up * moveData.jumpSeed * Time.deltaTime).y)
         {
-            m_position += Vector3.up * m_jumpSeed * Time.deltaTime;
+            moveData.position += Vector3.up * moveData.jumpSeed * Time.deltaTime;
         }
         else
         {
-            m_position.y = GetGroundY(m_position) + m_heightToFeet;
+            moveData.position.y = GetGroundY(moveData.position) + moveData.heightToFeet;
         }
-           
-        m_Transform.position = m_position;
-        m_Transform.up = Vector3.up;
 
-        if(m_camera != null)
+        moveData.jumpTime -= Time.deltaTime;
+        if (moveData.jumpTime < 0f && !moveData.isAction)
         {
-            m_Transform.forward = Vector3.Cross(m_camera.transform.right, Vector3.up);
-        }    
-        else
-        {
-            m_Transform.forward = Vector3.Cross(m_Transform.right, Vector3.up);
+            moveData.movable = true;
+            moveData.isJumpUp = false;
         }
+
+        Vector3 tmp = Vector3.zero;
+    
+        tmp = Vector3.Cross(ServiceLocator.getCameraService().GetUp(), moveData.forward);
+
+        moveData.forward = Vector3.Cross(tmp, Vector3.up).normalized;
+        moveData.isRun = isRun;
+        isRun = false;
     }
 
-    public bool OnTheGround(Vector3 objPos)
+    public bool OnTheGround(ref MoveData moveData,Vector3 objPos)
     {
 
         float y = objPos.y;
      
-        float groundY =  m_terrain.SampleHeight(objPos);
+        float groundY =  ServiceLocator.getMapService().GetMapHeight(objPos);
 
-        if (groundY + m_heightToFeet + 0.1 >= y)  // 由于数据的精度和移动的状态  如果不加0.1 可能会造成判断错误
+        if (groundY + moveData.heightToFeet + 0.1 >= y)  // 由于数据的精度和移动的状态  如果不加0.1 可能会造成判断错误
         {
             return true;
         }
@@ -172,7 +139,18 @@ public class MoveComponent : IMoveComponent
 
     public float GetGroundY(Vector3 objPos)
     {
-        float hitY = m_terrain.SampleHeight(objPos);
+        float hitY = ServiceLocator.getMapService().GetMapHeight(objPos);
         return hitY;
     }
+
+    public Vector3 GetPosition(ref MoveData moveData)
+    {
+        return moveData.position;
+    }
+
+    public void SetCanMove(ref MoveData moveData,bool canMove)
+    {
+        moveData.movable = canMove;
+    }
+    
 }

@@ -12,7 +12,7 @@ public class MoveForwardCommandImpl : AbstractMoveCommand
 {
     public override void Execute(IMoveComponent posComponent, float xOffset, float yOffset, float zoomOffset, float x, float y)
     {
-        posComponent.MoveForward();
+        posComponent.MoveForward(ref ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData);
     }
 }
 
@@ -21,7 +21,7 @@ public class MoveLeftCommandImpl : AbstractMoveCommand
 {
     public override void Execute(IMoveComponent posComponent, float xOffset, float yOffset, float zoomOffset, float x, float y)
     {
-        posComponent.MoveLeft();
+        posComponent.MoveLeft(ref ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData);
     }
 }
 
@@ -30,7 +30,7 @@ public class MoveRightCommandImpl : AbstractMoveCommand
 {
     public override void Execute(IMoveComponent posComponent, float xOffset, float yOffset, float zoomOffset, float x, float y)
     {
-        posComponent.MoveRight();
+        posComponent.MoveRight(ref ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData);
     }
 }
 
@@ -39,7 +39,7 @@ public class MoveBackCommandImpl : AbstractMoveCommand
 {
     public override void Execute(IMoveComponent posComponent, float xOffset, float yOffset, float zoomOffset, float x, float y)
     {
-        posComponent.MoveBack();
+        posComponent.MoveBack(ref ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData);
     }
 }
 
@@ -48,7 +48,7 @@ public class MoveUpCommandImpl : AbstractMoveCommand
 {
     public override void Execute(IMoveComponent posComponent, float xOffset, float yOffset, float zoomOffset, float x, float y)
     {
-        posComponent.MoveUp();
+        posComponent.MoveUp(ref ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData);
     }
 }
 
@@ -57,7 +57,7 @@ public class MoveDownCommandImpl : AbstractMoveCommand
 {
     public override void Execute(IMoveComponent posComponent, float xOffset, float yOffset, float zoomOffset, float x, float y)
     {
-        posComponent.MoveDown();
+        posComponent.MoveDown(ref ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData);
     }
 }
 
@@ -66,6 +66,6 @@ public class MoveJumpCommandImpl : AbstractMoveCommand
 {
     public override void Execute(IMoveComponent posComponent, float xOffset, float yOffset, float zoomOffset, float x, float y)
     {
-        posComponent.Jump();
+        posComponent.Jump(ref ControllerCenter.Instance.playerSystem.GetMainPlayer().moveData);
     }
 }

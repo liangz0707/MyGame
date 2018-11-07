@@ -48,15 +48,15 @@ public abstract class IInputEventService
         NUM_7,
         NUM_8,
         NUM_9,
-        SKILL_1,
-        SKILL_2,
-        SKILL_3,
-        SKILL_4,
-        SKILL_5,
-        SKILL_6,
-        SKILL_7,
-        SKILL_8,
-        SKILL_9,
+        ACTION_1,
+        ACTION_2,
+        ACTION_3,
+        ACTION_4,
+        ACTION_5,
+        ACTION_6,
+        ACTION_7,
+        ACTION_8,
+        ACTION_9,
 
         VERTUAL_KEY_NUMBER
     }
@@ -73,7 +73,7 @@ public abstract class IInputEventService
     public abstract void SetKeyMapping();
     public abstract void TranslateInput();
     public abstract void ResetInput();
-    public abstract MouseState MousePos();
+    public abstract MouseState GetMouseState();
 }
 
 public class NullInputEventService: IInputEventService
@@ -100,7 +100,7 @@ public class NullInputEventService: IInputEventService
     {
     }
 
-    public override MouseState MousePos()
+    public override MouseState GetMouseState()
     {
         return new MouseState();
     }
@@ -134,7 +134,7 @@ public class InputEventService: IInputEventService
             return m_lVertualKeyState[keyIndex];
     }
 
-    public override MouseState MousePos()
+    public override MouseState GetMouseState()
     {
         return m_lMouseState;
     }
@@ -169,15 +169,15 @@ public class InputEventService: IInputEventService
         m_KeyMap.Add("8", VertualKey.NUM_8);
         m_KeyMap.Add("9", VertualKey.NUM_9);
 
-        m_KeyMapWithAlt.Add("1", VertualKey.SKILL_1);
-        m_KeyMapWithAlt.Add("2", VertualKey.SKILL_2);
-        m_KeyMapWithAlt.Add("3", VertualKey.SKILL_3);
-        m_KeyMapWithAlt.Add("4", VertualKey.SKILL_4);
-        m_KeyMapWithAlt.Add("5", VertualKey.SKILL_5);
-        m_KeyMapWithAlt.Add("6", VertualKey.SKILL_6);
-        m_KeyMapWithAlt.Add("7", VertualKey.SKILL_7);
-        m_KeyMapWithAlt.Add("8", VertualKey.SKILL_8);
-        m_KeyMapWithAlt.Add("9", VertualKey.SKILL_9);
+        m_KeyMapWithAlt.Add("1", VertualKey.ACTION_1);
+        m_KeyMapWithAlt.Add("2", VertualKey.ACTION_2);
+        m_KeyMapWithAlt.Add("3", VertualKey.ACTION_3);
+        m_KeyMapWithAlt.Add("4", VertualKey.ACTION_4);
+        m_KeyMapWithAlt.Add("5", VertualKey.ACTION_5);
+        m_KeyMapWithAlt.Add("6", VertualKey.ACTION_6);
+        m_KeyMapWithAlt.Add("7", VertualKey.ACTION_7);
+        m_KeyMapWithAlt.Add("8", VertualKey.ACTION_8);
+        m_KeyMapWithAlt.Add("9", VertualKey.ACTION_9);
     }
 
     public override void TranslateInput()

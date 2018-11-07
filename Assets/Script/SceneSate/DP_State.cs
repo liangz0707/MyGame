@@ -8,19 +8,6 @@ using System.Text;
  * */
 public abstract class AbstractStateController
 {
-    IState m_IState;
-    public virtual void StateUpdate()
-    {
-        m_IState.StateUpdate();
-    }
 
-    public virtual void SetState(IState state)
-    {
-        m_IState = state;
-    }
 }
-
-public interface IState
-{
-    void StateUpdate();
-}
+    

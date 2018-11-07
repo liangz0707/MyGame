@@ -10,7 +10,7 @@ using System.Text;
 
 
 // 所有物品的父类
-public class UsableItem: Item
+public class UsableItem: IItem
 {
 
 }

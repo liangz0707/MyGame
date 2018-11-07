@@ -15,10 +15,10 @@
     <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
     <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Editor:5</UnityProjectType>
-    <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
-    <UnityVersion>5.6.1f1</UnityVersion>
+    <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
+    <UnityVersion>2018.2.8f1</UnityVersion>
     <RootNamespace></RootNamespace>
-    <LangVersion>4</LangVersion>
+    <LangVersion>7</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -27,8 +27,8 @@
     <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_1;UNITY_5_6;UNITY_5;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE</DefineConstants>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_2_8;UNITY_2018_2;UNITY_2018;PLATFORM_ARCH_64;UNITY_64;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_EVENT_QUEUE;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE;UNITY_POST_PROCESSING_STACK_V2;CROSS_PLATFORM_INPUT;CSHARP_7_OR_LATER</DefineConstants>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -37,8 +37,8 @@
     <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_1;UNITY_5_6;UNITY_5;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE</DefineConstants>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_2_8;UNITY_2018_2;UNITY_2018;PLATFORM_ARCH_64;UNITY_64;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_EVENT_QUEUE;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE;UNITY_POST_PROCESSING_STACK_V2;CROSS_PLATFORM_INPUT;CSHARP_7_OR_LATER</DefineConstants>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
@@ -49,71 +49,311 @@
     <Reference Include="UnityScript.Lang" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="UnityEngine">
-      <HintPath>C:/Program Files/Unity5.6/Editor/Data/Managed/UnityEngine.dll</HintPath>
+    <Reference Include="Managed/UnityEngine/UnityEngine">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor">
-      <HintPath>C:/Program Files/Unity5.6/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    <Reference Include="Managed/UnityEngine/UnityEngine.AIModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.Advertisements">
-      <HintPath>C:/Program Files/Unity5.6/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
+    <Reference Include="Managed/UnityEngine/UnityEngine.ARModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.ARModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.AccessibilityModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.AccessibilityModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.AnimationModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.AssetBundleModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.AssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.AudioModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.BaselibModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.BaselibModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.ClothModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.ClothModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.CloudWebServicesModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.CloudWebServicesModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.ClusterInputModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.ClusterInputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.ClusterRendererModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.CoreModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.CrashReportingModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.CrashReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.DirectorModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.DirectorModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.FacebookModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.FacebookModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.FileSystemHttpModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.FileSystemHttpModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.GameCenterModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.GameCenterModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.GridModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.GridModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.HotReloadModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.HotReloadModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.IMGUIModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.ImageConversionModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.InputModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.InputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.JSONSerializeModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.LocalizationModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.LocalizationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.ParticleSystemModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.ParticlesLegacyModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.ParticlesLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.PerformanceReportingModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.PhysicsModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.Physics2DModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.ProfilerModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.ProfilerModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.ScreenCaptureModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.ScreenCaptureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.SharedInternalsModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.SharedInternalsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.SpatialTrackingModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.SpatialTrackingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.SpriteMaskModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.SpriteShapeModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.SpriteShapeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.StreamingModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.StreamingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.StyleSheetsModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.StyleSheetsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.SubstanceModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.SubstanceModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.TLSModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.TLSModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.TerrainModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.TerrainModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.TerrainPhysicsModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.TerrainPhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.TextRenderingModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.TilemapModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.TilemapModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.TimelineModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.TimelineModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.UIModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.UIElementsModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.UIElementsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.UNETModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.UNETModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.UmbraModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.UmbraModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.UnityAnalyticsModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.UnityAnalyticsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.UnityConnectModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.UnityConnectModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.UnityWebRequestModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.UnityWebRequestAssetBundleModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.UnityWebRequestAudioModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.UnityWebRequestTextureModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.UnityWebRequestWWWModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.VRModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.VRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.VehiclesModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.VehiclesModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.VideoModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.VideoModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.WindModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.WindModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.XRModule">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEditor">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/Unity.Locator">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\Managed/Unity.Locator.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Program Files/Unity5.6/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+      <HintPath>D:/Unity/UnityEditor2018.2.8f1/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Program Files/Unity5.6/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>C:/Program Files/Unity5.6/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.Networking">
-      <HintPath>C:/Program Files/Unity5.6/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+      <HintPath>D:/Unity/UnityEditor2018.2.8f1/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>C:/Program Files/Unity5.6/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>D:/Unity/UnityEditor2018.2.8f1/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>C:/Program Files/Unity5.6/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>D:/Unity/UnityEditor2018.2.8f1/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>C:/Program Files/Unity5.6/Editor/Data/UnityExtensions/Unity/TestRunner/nunit.framework.dll</HintPath>
+      <HintPath>D:/Unity/UnityEditor2018.2.8f1/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Timeline">
+      <HintPath>D:/Unity/UnityEditor2018.2.8f1/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Timeline">
+      <HintPath>D:/Unity/UnityEditor2018.2.8f1/Unity/Editor/Data/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TreeEditor">
-      <HintPath>C:/Program Files/Unity5.6/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
+      <HintPath>D:/Unity/UnityEditor2018.2.8f1/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Program Files/Unity5.6/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>D:/Unity/UnityEditor2018.2.8f1/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.Analytics">
-      <HintPath>C:/Program Files/Unity5.6/Editor/Data/UnityExtensions/Unity/UnityAnalytics/Editor/UnityEditor.Analytics.dll</HintPath>
+    <Reference Include="UnityEditor.Networking">
+      <HintPath>D:/Unity/UnityEditor2018.2.8f1/Unity/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.GoogleAudioSpatializer">
+      <HintPath>D:/Unity/UnityEditor2018.2.8f1/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/Editor/UnityEditor.GoogleAudioSpatializer.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GoogleAudioSpatializer">
+      <HintPath>D:/Unity/UnityEditor2018.2.8f1/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.HoloLens">
-      <HintPath>C:/Program Files/Unity5.6/Editor/Data/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll</HintPath>
+      <HintPath>D:/Unity/UnityEditor2018.2.8f1/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
-      <HintPath>C:/Program Files/Unity5.6/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+      <HintPath>D:/Unity/UnityEditor2018.2.8f1/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.Purchasing">
-      <HintPath>C:/Program Files/Unity5.6/Editor/Data/UnityExtensions/Unity/UnityPurchasing/Editor/UnityEditor.Purchasing.dll</HintPath>
+    <Reference Include="UnityEditor.SpatialTracking">
+      <HintPath>D:/Unity/UnityEditor2018.2.8f1/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/Editor/UnityEditor.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpatialTracking">
+      <HintPath>D:/Unity/UnityEditor2018.2.8f1/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.VR">
-      <HintPath>C:/Program Files/Unity5.6/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.VR">
-      <HintPath>C:/Program Files/Unity5.6/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+      <HintPath>D:/Unity/UnityEditor2018.2.8f1/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Graphs">
-      <HintPath>C:/Program Files/Unity5.6/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+      <HintPath>D:/Unity/UnityEditor2018.2.8f1/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
-      <HintPath>C:/Program Files/Unity5.6/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+      <HintPath>D:/Unity/UnityEditor2018.2.8f1/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Substance.Game">
+      <HintPath>Assets/Plugins/Substance.Game.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>Assets/Plugins/Substance/Livelink/Editor/Plugins/websocket-sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Substance.Editor">
+      <HintPath>Assets/Plugins/Substance/Substance Engine/Editor/Substance.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Substance.Reflection">
+      <HintPath>Assets/Plugins/Substance/Substance Engine/Editor/Substance.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="SourceUnityLib">
+      <HintPath>Assets/Plugins/Substance/Substance Source/Editor/SourceUnityLib.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Advertisements">
+      <HintPath>C:/Users/Administrator/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>C:/Users/Administrator/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Analytics">
+      <HintPath>C:/Users/Administrator/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/Editor/UnityEditor.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Purchasing">
+      <HintPath>C:/Users/Administrator/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.StandardEvents">
+      <HintPath>C:/Users/Administrator/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
-      <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+      <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/2015/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="JMOAssets">
-      <HintPath>Assets/JMO Assets/Editor/JMOAssets.dll</HintPath>
+    <Reference Include="mscorlib">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\mscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Runtime.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Xml.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityScript">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\UnityScript.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityScript.Lang">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\UnityScript.Lang.dll</HintPath>
+    </Reference>
+    <Reference Include="Boo.Lang">
+      <HintPath>D:\Unity\UnityEditor2018.2.8f1\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\Boo.Lang.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -121,35 +361,318 @@
       <Project>{F8672B8E-08CC-FDD0-2655-E4A0BDE13795}</Project>
       <Name>MyGame</Name>
     </ProjectReference>
+    <ProjectReference Include="MyGame.Editor.Plugins.csproj">
+      <Project>{86A0F703-6DB4-0E86-7E5F-B3DEF68BC19E}</Project>
+      <Name>MyGame.Editor.Plugins</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.StandardEvents.csproj">
+      <Project>{6800202F-4402-D405-F8CB-03DC7BD78B92}</Project>
+      <Name>UnityEditor.StandardEvents</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.TextMeshPro.Editor.csproj">
+      <Project>{3A848AB7-9891-EDDA-D555-BF184C2F81F4}</Project>
+      <Name>Unity.TextMeshPro.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.PackageManagerUI.Editor.csproj">
+      <Project>{6877705C-FBD9-0C4F-5AFB-6FB431E5D39D}</Project>
+      <Name>Unity.PackageManagerUI.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="TCParticles.csproj">
+      <Project>{72F17251-B86A-A6BA-93F8-5350C93E96C4}</Project>
+      <Name>TCParticles</Name>
+    </ProjectReference>
+    <ProjectReference Include="TCParticlesEditor.csproj">
+      <Project>{22EA4497-4893-18D5-CF84-93859C9EEA32}</Project>
+      <Name>TCParticlesEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.TextMeshPro.csproj">
+      <Project>{07A21C90-D344-AE1A-8456-9910C203B41A}</Project>
+      <Name>Unity.TextMeshPro</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\JMO Assets\Cartoon FX Easy Editor\Editor\CFXEasyEditor.cs" />
-    <Compile Include="Assets\JMO Assets\WarFX\Editor\CFX_SpawnSystemEditor.cs" />
+    <Compile Include="Assets\ArtTool\Curve\Editor\BezierCurveInspector.cs" />
+    <Compile Include="Assets\ArtTool\Curve\Editor\BezierSplineInspector.cs" />
+    <Compile Include="Assets\ArtTool\Curve\Editor\MotionTraceInspector.cs" />
+    <Compile Include="Assets\ArtTool\Curve\Editor\StraightLineInspector.cs" />
+    <Compile Include="Assets\ArtTool\Gaia\Scripts\Editor\AboutEditor.cs" />
+    <Compile Include="Assets\ArtTool\Gaia\Scripts\Editor\ExportTerrain.cs" />
+    <Compile Include="Assets\ArtTool\Gaia\Scripts\Editor\GaiaDefaultsEditor.cs" />
+    <Compile Include="Assets\ArtTool\Gaia\Scripts\Editor\GaiaExtensionExporterEditor.cs" />
+    <Compile Include="Assets\ArtTool\Gaia\Scripts\Editor\GaiaGrassMaskExporterEditor.cs" />
+    <Compile Include="Assets\ArtTool\Gaia\Scripts\Editor\GaiaManagerEditor.cs" />
+    <Compile Include="Assets\ArtTool\Gaia\Scripts\Editor\GaiaMaskExporterEditor.cs" />
+    <Compile Include="Assets\ArtTool\Gaia\Scripts\Editor\GaiaNormalExporterEditor.cs" />
+    <Compile Include="Assets\ArtTool\Gaia\Scripts\Editor\GaiaResourceEditor.cs" />
+    <Compile Include="Assets\ArtTool\Gaia\Scripts\Editor\GaiaSessionManagerEditor.cs" />
+    <Compile Include="Assets\ArtTool\Gaia\Scripts\Editor\GaiaTerrainHeightAdjuster.cs" />
+    <Compile Include="Assets\ArtTool\Gaia\Scripts\Editor\GaiaWaterflowMapEditor.cs" />
+    <Compile Include="Assets\ArtTool\Gaia\Scripts\Editor\ResourceVisualiserEditor.cs" />
+    <Compile Include="Assets\ArtTool\Gaia\Scripts\Editor\ScannerEditor.cs" />
+    <Compile Include="Assets\ArtTool\Gaia\Scripts\Editor\ShorelineMaskerEditor.cs" />
+    <Compile Include="Assets\ArtTool\Gaia\Scripts\Editor\SpawnerEditor.cs" />
+    <Compile Include="Assets\ArtTool\Gaia\Scripts\Editor\SpawnerGroupEditor.cs" />
+    <Compile Include="Assets\ArtTool\Gaia\Scripts\Editor\StamperEditor.cs" />
+    <Compile Include="Assets\ArtTool\Gaia\Scripts\Editor\TerrainHelperEditor.cs" />
+    <Compile Include="Assets\ArtTool\Gaia\Scripts\Editor\TexturePickerEditor.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Attributes\DecoratorAttribute.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Attributes\PostProcessEditorAttribute.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\BaseEditor.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Decorators\AttributeDecorator.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Decorators\Decorators.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Decorators\TrackballDecorator.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\EffectListEditor.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Effects\AmbientOcclusionEditor.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Effects\AutoExposureEditor.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Effects\BloomEditor.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Effects\ChromaticAberrationEditor.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Effects\ColorGradingEditor.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Effects\DefaultPostProcessEffectEditor.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Effects\DepthOfFieldEditor.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Effects\LensDistortionEditor.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Effects\ScreenSpaceReflectionsEditor.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Effects\SunShaftEditor.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Effects\VignetteEditor.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\PostProcessDebugEditor.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\PostProcessEffectBaseEditor.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\PostProcessEffectEditor.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\PostProcessLayerEditor.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\PostProcessProfileEditor.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\PostProcessVolumeEditor.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Tools\CubeLutAssetFactory.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Tools\CubeLutAssetImporter.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Tools\DefineSetter.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Tools\ProfileFactory.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Tools\ResourceAssetFactory.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Tools\VolumeFactory.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Utils\CurveEditor.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Utils\EditorUtilities.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Utils\GlobalSettings.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Utils\PostProcessShaderIncludePath.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Utils\SerializedParameterOverride.cs" />
+    <Compile Include="Assets\ArtTool\PostProcessing\Editor\Utils\Styling.cs" />
+    <Compile Include="Assets\Obi\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiAboutWindow.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiAerodynamicConstraintsEditor.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiBendingConstraintsEditor.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiBoneEditor.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiClothEditor.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiClothParticleHandles.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiClothProxyEditor.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiColliderEditor.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiDistanceConstraintsEditor.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiDraggableIcon.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiEditorUtils.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiEmitterEditor.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiEmitterMaterialEditor.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiMeshTopologyEditor.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiParticleActorEditor.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiParticleBakerEditor.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiParticleCacheEditor.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiParticleHandleEditor.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiParticleRendererEditor.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiPinConstraintsEditor.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiSkinConstraintsEditor.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiSolverEditor.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiSplineHandles.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiStitcherEditor.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiTearableClothEditor.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiTetherConstraintsEditor.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiTriangleSkinMapEditor.cs" />
+    <Compile Include="Assets\Obi\Editor\ObiVolumeConstraintsEditor.cs" />
+    <Compile Include="Assets\Obi\Editor\PreviewHelpers.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\JMO Assets\!JMO Assets Readme.txt" />
-    <None Include="Assets\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
-    <None Include="Assets\JMO Assets\WarFX\!WarFX Readme.txt" />
-    <None Include="Assets\JMO Assets\WarFX\Shaders\WFX_S Add Scroll.shader" />
-    <None Include="Assets\JMO Assets\WarFX\Shaders\WFX_S Alpha-Diffuse TintColor.shader" />
-    <None Include="Assets\JMO Assets\WarFX\Shaders\WFX_S Alpha-Specular TintColor.shader" />
-    <None Include="Assets\JMO Assets\WarFX\Shaders\WFX_S AlphaBlend NoSoftParticles.shader" />
-    <None Include="Assets\JMO Assets\WarFX\Shaders\WFX_S AlphaBlend Scroll.shader" />
-    <None Include="Assets\JMO Assets\WarFX\Shaders\WFX_S Multiply Soft Scroll.shader" />
-    <None Include="Assets\JMO Assets\WarFX\Shaders\WFX_S Multiply Soft.shader" />
-    <None Include="Assets\JMO Assets\WarFX\Shaders\WFX_S Particle Add A8.shader" />
-    <None Include="Assets\JMO Assets\WarFX\Shaders\WFX_S Particle AddSoft A8.shader" />
-    <None Include="Assets\JMO Assets\WarFX\Shaders\WFX_S Particle Multiply A8.shader" />
-    <None Include="Assets\JMO Assets\WarFX\Shaders\WFX_S Smoke Scroll.shader" />
-    <None Include="Assets\JMO Assets\WarFX\_Effects (Mobile)\MuzzleFlashes\!MuzzleFlash Differences.txt" />
-    <None Include="Assets\JMO Assets\WarFX\_Effects\MuzzleFlashes\!MuzzleFlash Differences.txt" />
+    <None Include="Assets\ArtTool\Gaia\3rd Party Samplers\3DForge\Documents\Village Exteriors Kit v1.2.1 - user guide.txt" />
+    <None Include="Assets\ArtTool\Gaia\3rd Party Samplers\GameTexturesDotCom\_Readme.txt" />
+    <None Include="Assets\ArtTool\Gaia\3rd Party Samplers\MotuProprio\RealRock Vol I\Readme.txt" />
+    <None Include="Assets\ArtTool\Gaia\3rd Party Samplers\README.txt" />
+    <None Include="Assets\ArtTool\Gaia\3rd Party Samplers\Turboscalpeur\Readme.txt" />
+    <None Include="Assets\ArtTool\Gaia\Documentation\Release Notes v1_5_0.txt" />
+    <None Include="Assets\ArtTool\Gaia\Documentation\Release Notes v1_5_1.txt" />
+    <None Include="Assets\ArtTool\Gaia\Scripts\ExtensionSystem\GaiaXtnFooter.txt" />
+    <None Include="Assets\ArtTool\Gaia\Scripts\ExtensionSystem\GaiaXtnHeader.txt" />
+    <None Include="Assets\ArtTool\Gaia\Scripts\JsonSerialiser\_ReadMe.txt" />
+    <None Include="Assets\ArtTool\PerfectBand\M_QS_A.shader" />
+    <None Include="Assets\ArtTool\PerfectWater\Mirror.cginc" />
+    <None Include="Assets\ArtTool\PerfectWater\PerfectWaterRiverVersion_R.shader" />
+    <None Include="Assets\ArtTool\PerfectWater\PerfectWaterWaveVersion_R.shader" />
+    <None Include="Assets\ArtTool\PerfectWater\Wave\shader\WaterWave.cginc" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\ACES.hlsl" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\API\D3D11.hlsl" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\API\D3D12.hlsl" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\API\D3D9.hlsl" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\API\Metal.hlsl" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\API\OpenGL.hlsl" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\API\PSP2.hlsl" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\API\PSSL.hlsl" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\API\Switch.hlsl" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\API\Vulkan.hlsl" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\API\XboxOne.hlsl" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\AmplifyBase.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\AmplifyBlend.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\AmplifyBlendCache.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\AmplifyBloom.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\AmplifyBloomFinal.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\AmplifyOcclusion.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\Atmospheric.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\AtmosphericLib.cginc" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\AtmosphericRayMarchLib.cginc" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\AutoExposure.compute" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\Bloom.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\BloomFrag.cginc" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\BloomLib.cginc" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\BloomUtils.txt" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\Common.cginc" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\Copy.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\CopyStd.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\DeferredFog.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\DepthOfField.hlsl" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\DepthOfField.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\DiscardAlpha.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\DiskKernels.hlsl" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\Distortion.hlsl" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\Dithering.hlsl" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\ExposureHistogram.compute" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\ExposureHistogram.hlsl" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\FastApproximateAntialiasing.hlsl" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\FinalPass.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\Fog.hlsl" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\GaussianDownsample.compute" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\GrainBaker.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\Lut2DBaker.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\Lut3DBaker.compute" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\MotionBlur.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\MultiScaleVO.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\MultiScaleVODownsample1.compute" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\MultiScaleVODownsample2.compute" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\MultiScaleVORender.compute" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\MultiScaleVOUpsample.compute" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\RadialBlur.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\SSMFog.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\SSMS.cginc" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\ScalableAO.hlsl" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\ScalableAO.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\ScreenSpaceReflections.hlsl" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\ScreenSpaceReflections.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\SubpixelMorphologicalAntialiasing.hlsl" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\SubpixelMorphologicalAntialiasing.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\SubpixelMorphologicalAntialiasingBridge.hlsl" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\TemporalAntialiasing.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\TenkokuSunShafts.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\Texture2DLerp.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\Texture3DLerp.compute" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Builtins\Uber.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Colors.hlsl" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Debug\Histogram.compute" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Debug\Histogram.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Debug\LightMeter.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Debug\Overlays.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Debug\Vectorscope.compute" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Debug\Vectorscope.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Debug\Waveform.compute" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Debug\Waveform.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Editor\ConvertToLog.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Editor\CurveGrid.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Editor\Trackball.shader" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\Sampling.hlsl" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\StdLib.hlsl" />
+    <None Include="Assets\ArtTool\PostProcessing\Shaders\xRLib.hlsl" />
+    <None Include="Assets\Obi\Editor\Resources\EditorLineShader.shader" />
+    <None Include="Assets\Obi\Editor\Resources\EditorParticle.shader" />
+    <None Include="Assets\Obi\Editor\Resources\EditorParticleRadius.shader" />
+    <None Include="Assets\Obi\Editor\Resources\FlatSurfaceShader.shader" />
+    <None Include="Assets\Obi\Editor\Resources\PropertyGradientMaterial.shader" />
+    <None Include="Assets\Obi\Editor\Resources\TopologyBorders.shader" />
+    <None Include="Assets\Obi\Plugins\libOni.bundle\Contents\Resources\CMakeLists.txt" />
+    <None Include="Assets\Obi\Resources\ObiMaterials\LitParticles.shader" />
+    <None Include="Assets\Obi\Resources\ObiMaterials\ObiParticles.cginc" />
+    <None Include="Assets\Obi\Resources\ObiMaterials\ParticleShader.shader" />
+    <None Include="Assets\Obi\Resources\ObiMaterials\SimpleParticleShader.shader" />
+    <None Include="Assets\Obi\Resources\ObiMaterials\StandardBackfaces.shader" />
+    <None Include="Assets\Obi\Resources\ObiMaterials\UnityStandardCoreBackfaces.cginc" />
+    <None Include="Assets\Obi\Resources\ObiMaterials\UnityStandardCoreForwardBackfaces.cginc" />
+    <None Include="Assets\Obi\Resources\ObiMaterials\UnityStandardCoreForwardSimpleBackfaces.cginc" />
+    <None Include="Assets\Plugins\TCParticles\Readme.txt" />
+    <None Include="Assets\Plugins\TCParticles\Resources\Compute\BakeForce.compute" />
+    <None Include="Assets\Plugins\TCParticles\Resources\Compute\MassParticle.compute" />
+    <None Include="Assets\Plugins\TCParticles\Resources\Compute\RandomLib.cginc" />
+    <None Include="Assets\Plugins\TCParticles\Resources\Compute\SimplexNoise3D.cginc" />
+    <None Include="Assets\Plugins\TCParticles\Resources\Compute\SimplexNoiseGrad3D.cginc" />
+    <None Include="Assets\Plugins\TCParticles\Resources\Editor\TurbulenceVisualize.shader" />
+    <None Include="Assets\Plugins\TCParticles\Resources\Editor\WireframeShader.shader" />
+    <None Include="Assets\Plugins\TCParticles\Resources\Standard\TCShaderStandard.shader" />
+    <None Include="Assets\Plugins\TCParticles\Resources\Standard\TCShaderStandardUnlit.shader" />
+    <None Include="Assets\Plugins\TCParticles\Resources\Standard\TcStandardParticleShadow.cginc" />
+    <None Include="Assets\Plugins\TCParticles\Resources\Standard\TcStandardParticles.cginc" />
+    <None Include="Assets\Plugins\TCParticles\Resources\TCDefaultVert.cginc" />
+    <None Include="Assets\Plugins\TCParticles\Resources\TCFramework.cginc" />
+    <None Include="Assets\Plugins\TCParticles\Resources\TCShaderAdditive.shader" />
+    <None Include="Assets\Plugins\TCParticles\Resources\TCShaderAdditiveSmooth.shader" />
+    <None Include="Assets\Plugins\TCParticles\Resources\TCShaderAlphaCutoff.shader" />
+    <None Include="Assets\Plugins\TCParticles\Resources\TCShaderBlend.shader" />
+    <None Include="Assets\Plugins\TCParticles\Resources\TCShaderMultiply.shader" />
+    <None Include="Assets\Plugins\TCParticles\Samples\Extensions\ExtensionTemplate.compute" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PointCloud\Guanyin\Acknowledgement.txt" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PointCloud\LitCloud\Acknowledgement.txt" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Editor Resources\Monitors\HistogramRender.shader" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Editor Resources\Monitors\ParadeRender.shader" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Editor Resources\Monitors\VectorscopeCompute.compute" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Editor Resources\Monitors\VectorscopeRender.shader" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Editor Resources\Monitors\WaveformCompute.compute" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Editor Resources\Monitors\WaveformRender.shader" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Editor Resources\UI\CurveBackground.shader" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Editor Resources\UI\Trackball.shader" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Bluenoise64\COPYING.txt" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Bluenoise64\LICENSE.txt" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\ACES.cginc" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\AmbientOcclusion.cginc" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\AmbientOcclusion.shader" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\Blit.shader" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\Bloom.cginc" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\Bloom.shader" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\BuiltinDebugViews.shader" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\ColorGrading.cginc" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\Common.cginc" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\DepthOfField.cginc" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\DepthOfField.shader" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\DiskKernels.cginc" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\EyeAdaptation.cginc" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\EyeAdaptation.shader" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\EyeHistogram.compute" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\FXAA.shader" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\FXAA3.cginc" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\Fog.shader" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\GrainGen.shader" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\LutGen.shader" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\MotionBlur.shader" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\ScreenSpaceRaytrace.cginc" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\ScreenSpaceReflection.shader" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\TAA.cginc" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\TAA.shader" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\Tonemapping.cginc" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\Uber.shader" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
+    <None Include="Assets\Plugins\TCParticles\Samples\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
+    <None Include="Assets\Plugins\TCParticles\Samples\SpringExtension\SpringUpdateCompute.compute" />
     <None Include="Assets\Script\Command\Readme.txt" />
     <None Include="Assets\Script\Component\Readme.txt" />
     <None Include="Assets\Script\Factory\Readme.txt" />
     <None Include="Assets\Script\Item\Readme.txt" />
-    <None Include="Assets\Script\Manager\Readme.txt" />
+    <None Include="Assets\Script\ManagerAndSystem\Readme.txt" />
     <None Include="Assets\Script\SceneSate\Readme.txt" />
-    <None Include="Assets\Shader\TerrainShader.shader" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Dark.uss" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Light.uss" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\Alert.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageDetails.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageGroup.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageItem.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageList.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageManagerWindow.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageSearchFilterTabs.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackagesLoading.uxml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

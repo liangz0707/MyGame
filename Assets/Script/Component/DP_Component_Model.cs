@@ -6,20 +6,21 @@ using UnityEngine;
 
 public class ModelComponent : IModelComponent
 {
-    GameObject m_model;
-    public ModelComponent(GameObject obj)
+    public ModelComponent()
     {
-        m_model = obj;
     }
-
-    public GameObject GetModel()
+    
+    public virtual void Update(uint ID)
     {
-        return m_model;
-    }
-
-    public void Update()
-    {
-        
+        PlayerProduct playerProduct;
+        GameObject obj;
+        bool hasPlayerData = ControllerCenter.Instance.playerSystem.Get(ID, out playerProduct);
+        bool hasGameObject = ControllerCenter.Instance.gameobjectSystem.Get(ID, out obj);
+        if (hasPlayerData && hasGameObject)
+        {
+            obj.transform.position = playerProduct.moveData.position;
+            obj.transform.forward = playerProduct.moveData.forward;
+        }
     }
 }
 

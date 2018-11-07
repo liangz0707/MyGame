@@ -40,6 +40,5 @@ public class StateComponent : IStateComponent
     
     public void Update()
     {
-
     }
 }
