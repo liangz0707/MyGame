@@ -12,6 +12,7 @@ public class StateComponent : IStateComponent
     private int m_iMagic;
     private int m_iHealth;
     private float m_fMoveSpeed;
+    private IPlayerStateHolder m_stateHolder;
 
     public int Magic
     {
@@ -36,9 +37,15 @@ public class StateComponent : IStateComponent
         m_iMagic = iMagic;
         m_iHealth = iHealth;
         m_fMoveSpeed = fMoveSpeed;
+        m_stateHolder = new PlayerStateHolder();
+        m_stateHolder.SetState(new PlayerNormal());
     }
     
     public void Update()
     {
+<<<<<<< HEAD
+=======
+        m_stateHolder.StateUpdate();
+>>>>>>> 0e13a18dfa5fa281c2236b9df9f0e8d68c150740
     }
 }
